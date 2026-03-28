@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — The Pie Lab</title>
+  <meta name="description" content="Privacy Policy for The Pie Lab app and website.">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/favicon-32.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0e0b0a;
+      --bg-alt: #161211;
+      --card: #1e1916;
+      --primary: #c4604b;
+      --primary-dark: #a34535;
+      --accent: #d9a85a;
+      --text: #cdc4bb;
+      --text-muted: #7a716a;
+      --white: #f5f0eb;
+      --border: rgba(245, 240, 235, 0.06);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--white); }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 32px;
+      background: rgba(14, 11, 10, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header .logo { height: 32px; width: auto; }
+
+    .header-cta {
+      padding: 10px 28px;
+      background: var(--white);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(245, 240, 235, 0.15);
+      color: var(--bg);
+    }
+
+    /* ── CONTENT ── */
+    .policy-page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 140px 32px 100px;
+    }
+
+    .policy-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .policy-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .policy-updated {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-section {
+      margin-bottom: 48px;
+    }
+
+    .policy-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      margin-top: 8px;
+    }
+
+    .policy-section p {
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      margin: 14px 0;
+    }
+
+    .policy-section ul li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .policy-section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .policy-section strong { color: var(--white); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      transition: color 200ms ease;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .site-header { padding: 14px 20px; }
+      .site-header .logo { height: 26px; }
+      .policy-page { padding: 110px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/"><img src="assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo"></a>
+    <a href="/#download" class="header-cta">Try Free for 14 Days</a>
+  </header>
+
+  <main class="policy-page">
+    <p class="policy-eyebrow">Legal</p>
+    <h1 class="policy-title">Privacy Policy</h1>
+    <p class="policy-updated">Last updated: March 13, 2026</p>
+
+    <div class="policy-section">
+      <h2>What We Collect</h2>
+      <p>The Pie Lab stores the following data to power your experience:</p>
+      <ul>
+        <li><strong>Profile information</strong> &mdash; display name, location, preferred oven, favorite style, measurement system, and humidity setting.</li>
+        <li><strong>Journal entries</strong> &mdash; bake logs including style, date, ratings, notes, and photos.</li>
+        <li><strong>Dough calculations</strong> &mdash; your most recent recipe configuration.</li>
+        <li><strong>Schedule data</strong> &mdash; active dough schedule steps and timing.</li>
+        <li><strong>App preferences</strong> &mdash; theme, unit system, and notification settings.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>Where Your Data Lives</h2>
+      <p>
+        All of your data is stored <strong>locally on your device</strong> using your browser's localStorage and IndexedDB. It is never uploaded to our servers. We do not operate a backend database, and we have no ability to access, read, or recover your data remotely.
+      </p>
+      <p>
+        Photos attached to journal entries are compressed and stored in IndexedDB on your device. They are never uploaded anywhere.
+      </p>
+      <p>
+        A device identifier is generated locally to prevent trial abuse. This identifier never leaves your device and is not transmitted to any server.
+      </p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Third-Party Services</h2>
+      <p>The Pie Lab uses a small number of external services:</p>
+      <ul>
+        <li>
+          <strong>Apple App Store / Google Play Store</strong> &mdash; processes Pro upgrade payments on mobile. All payment information is handled entirely by Apple or Google. The Pie Lab never sees, receives, or stores your credit card number or banking details.
+        </li>
+        <li>
+          <strong>RevenueCat</strong> &mdash; manages purchase verification and entitlement delivery. RevenueCat receives only an anonymous user ID and purchase receipt to validate your Pro status. No personal information is shared. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a>.
+        </li>
+        <li>
+          <strong>Open-Meteo API</strong> &mdash; used to look up elevation data when you set your city in My Kitchen. Only the city name is sent; no personal information is transmitted.
+        </li>
+        <li>
+          <strong>Google Fonts</strong> &mdash; loads the Playfair Display and Inter typefaces. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+        </li>
+        <li>
+          <strong>Google Forms</strong> &mdash; used for optional feedback submissions and bake photo feature requests. Data sent may include your feedback message, feedback type, optional email address, display name, city, unit preference, theme, screen size, and device type. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+        </li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>What We Don't Do</h2>
+      <ul>
+        <li>We do not use analytics or tracking scripts.</li>
+        <li>We do not use advertising networks or retargeting pixels.</li>
+        <li>We do not sell, share, or transmit your data to any third party.</li>
+        <li>We do not use cookies for tracking. The only storage mechanism is localStorage for your app data.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>GDPR &amp; CCPA</h2>
+      <p>
+        Because all data stays on your device and is never transmitted to us, you have complete control over your information at all times. You can export a full copy of your data or permanently delete everything from the My Kitchen page in the app. No request to us is necessary &mdash; you are in full control.
+      </p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Data Deletion</h2>
+      <p>
+        You can permanently erase all Pie Lab data from your device at any time using the <strong>Delete All My Data</strong> button on the My Kitchen page. This action is immediate and irreversible.
+      </p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Children's Privacy</h2>
+      <p>
+        The Pie Lab does not knowingly collect data from children under 13. Since all data is stored locally and never transmitted, no personal information is received by us from any user.
+      </p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app after changes constitutes acceptance of the revised policy.
+      </p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Contact</h2>
+      <p>Questions about privacy? Reach us at <a href="mailto:privacy@pielab.app">privacy@pielab.app</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="mailto:hello@pielab.app">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 The Pie Lab. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
