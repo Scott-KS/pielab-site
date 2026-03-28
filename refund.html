@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy — The Pie Lab</title>
+  <meta name="description" content="Refund Policy for The Pie Lab pizza-making app.">
+  <link rel="canonical" href="https://pielab.app/refund.html">
+  <meta property="og:title" content="Refund Policy — The Pie Lab">
+  <meta property="og:description" content="Refund Policy for The Pie Lab pizza-making app.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pielab.app/refund.html">
+  <meta property="og:image" content="https://pielab.app/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Refund Policy — The Pie Lab">
+  <meta name="twitter:description" content="Refund Policy for The Pie Lab pizza-making app.">
+  <meta name="twitter:image" content="https://pielab.app/assets/og-image.jpg">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/favicon-32.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0e0b0a;
+      --bg-alt: #161211;
+      --card: #1e1916;
+      --primary: #c4604b;
+      --primary-dark: #a34535;
+      --accent: #d9a85a;
+      --text: #cdc4bb;
+      --text-muted: #7a716a;
+      --white: #f5f0eb;
+      --border: rgba(245, 240, 235, 0.06);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--white); }
+
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 32px;
+      background: rgba(14, 11, 10, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header .logo { height: 32px; width: auto; }
+
+    .header-cta {
+      padding: 10px 28px;
+      background: var(--white);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(245, 240, 235, 0.15);
+      color: var(--bg);
+    }
+
+    .policy-page {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 140px 32px 100px;
+    }
+
+    .policy-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .policy-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .policy-updated {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 56px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-section { margin-bottom: 48px; }
+
+    .policy-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      margin-top: 8px;
+    }
+
+    .policy-section p {
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+
+    .policy-section strong { color: var(--white); font-weight: 600; }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      transition: color 200ms ease;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .site-header { padding: 14px 20px; }
+      .site-header .logo { height: 26px; }
+      .policy-page { padding: 110px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/"><img src="assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo"></a>
+    <a href="/#download" class="header-cta">Try Free for 14 Days</a>
+  </header>
+
+  <main class="policy-page">
+    <p class="policy-eyebrow">Legal</p>
+    <h1 class="policy-title">Refund Policy</h1>
+    <p class="policy-updated">Last updated: March 13, 2026</p>
+
+    <div class="policy-section">
+      <h2>Apple App Store Purchases</h2>
+      <p>If you purchased Pro through the Apple App Store, refunds are handled by Apple in accordance with their refund policy. To request a refund, visit <a href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">Apple's support page</a> or contact Apple directly through your purchase history.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Google Play Store Purchases</h2>
+      <p>If you purchased Pro through Google Play, refunds are handled by Google in accordance with their refund policy. To request a refund, visit the <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play support page</a> or contact Google through your order history.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>How to Request a Refund</h2>
+      <p>Email <a href="mailto:support@pielab.app">support@pielab.app</a> with the email address associated with your purchase and a brief description of the issue. We will process your refund within 5&ndash;7 business days.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>After a Refund</h2>
+      <p>Once a refund is processed, your Pro access will be reverted to the free tier. You will retain access to all free-tier features and any data stored locally on your device. No data is deleted as a result of a refund.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Contact</h2>
+      <p>Refund questions? Reach us at <a href="mailto:support@pielab.app">support@pielab.app</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScJNRfJizp54U1iMz6ExKLMMArGfaNDR-OkXYyr0FX5HSHiqg/viewform" target="_blank" rel="noopener">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 The Pie Lab. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
