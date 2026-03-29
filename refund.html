@@ -24,18 +24,28 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0e0b0a;
-      --bg-alt: #161211;
-      --card: #1e1916;
-      --primary: #c4604b;
-      --primary-dark: #a34535;
-      --accent: #d9a85a;
-      --text: #cdc4bb;
-      --text-muted: #7a716a;
-      --white: #f5f0eb;
-      --border: rgba(245, 240, 235, 0.06);
+      --bg: #f3ebe2; --bg-alt: #ede4da; --card: #faf6f1;
+      --primary: #922b21; --primary-dark: #7b241c; --accent: #c9954a;
+      --text: #1a1410; --text-muted: #5a4e47; --white: #1a1410;
+      --border: #d5c9bc; --header-bg: rgba(243, 235, 226, 0.85); --noise-opacity: 0.02;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
+        --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
+        --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
+        --border: #28231e; --header-bg: rgba(14, 12, 10, 0.8); --noise-opacity: 0.03;
+      }
+    }
+
+    [data-theme="dark"] {
+      --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
+      --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
+      --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
+      --border: #28231e; --header-bg: rgba(14, 12, 10, 0.8); --noise-opacity: 0.03;
     }
 
     html { scroll-behavior: smooth; }
@@ -56,19 +66,19 @@
       inset: 0;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.03;
+      opacity: var(--noise-opacity);
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
     a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--white); }
+    a:hover { color: var(--primary); }
 
     .site-header {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
       padding: 18px 32px;
-      background: rgba(14, 11, 10, 0.8);
+      background: var(--header-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -78,23 +88,27 @@
     }
 
     .site-header .logo { height: 32px; width: auto; }
+    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-header .logo { filter: none; } }
+    [data-theme="dark"] .site-header .logo { filter: none; }
 
     .header-cta {
       padding: 10px 28px;
-      background: var(--white);
-      color: var(--bg);
+      background: var(--primary);
+      color: #fff;
       font-family: var(--font-body);
       font-size: 14px;
       font-weight: 600;
       border-radius: 100px;
       text-decoration: none;
-      transition: transform 200ms ease, box-shadow 200ms ease;
+      transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
     }
 
     .header-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(245, 240, 235, 0.15);
-      color: var(--bg);
+      box-shadow: 0 4px 20px rgba(146, 43, 33, 0.25);
+      background: var(--primary-dark);
+      color: #fff;
     }
 
     .policy-page {
@@ -166,7 +180,7 @@
       text-decoration: none;
     }
 
-    .social-bar a:hover { color: var(--white); }
+    .social-bar a:hover { color: var(--primary); }
 
     .social-bar a svg { width: 20px; height: 20px; }
 
@@ -191,7 +205,7 @@
       transition: color 200ms ease;
     }
 
-    .footer-links a:hover { color: var(--white); }
+    .footer-links a:hover { color: var(--primary); }
 
     .footer-copy {
       color: var(--text-muted);
@@ -205,6 +219,7 @@
       .policy-page { padding: 110px 20px 80px; }
     }
   </style>
+  <script>/* Restore theme before paint */ (function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
 </head>
 <body>
 
