@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — The Pie Lab</title>
+  <meta name="description" content="Get in touch with The Pie Lab team. Submit questions, bug reports, or suggestions for improvement.">
+  <link rel="canonical" href="https://pielab.app/contact.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/favicon-32.svg">
+  <meta name="theme-color" content="#f3ebe2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0c0a" media="(prefers-color-scheme: dark)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f3ebe2; --bg-alt: #ede4da; --card: #faf6f1;
+      --primary: #922b21; --primary-dark: #7b241c; --accent: #c9954a;
+      --text: #1a1410; --text-muted: #5a4e47; --white: #1a1410;
+      --border: #d5c9bc; --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --header-bg: rgba(243, 235, 226, 0.85);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
+        --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
+        --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
+        --border: #28231e; --shadow: 0 4px 24px rgba(0,0,0,0.3);
+        --header-bg: rgba(14, 12, 10, 0.8);
+      }
+    }
+    [data-theme="dark"] {
+      --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
+      --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
+      --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
+      --border: #28231e; --shadow: 0 4px 24px rgba(0,0,0,0.3);
+      --header-bg: rgba(14, 12, 10, 0.8);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body); background: var(--bg);
+      color: var(--text); line-height: 1.7; font-size: 17px;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 32px; background: var(--header-bg);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-header .logo { height: 32px; width: auto; }
+    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .site-header .logo { filter: none; }
+    }
+    [data-theme="dark"] .site-header .logo { filter: none; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .theme-toggle {
+      background: none; border: 1px solid var(--border); border-radius: 100px;
+      padding: 8px; cursor: pointer; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: color 200ms ease, border-color 200ms ease; line-height: 1;
+    }
+    .theme-toggle:hover { color: var(--white); border-color: var(--text-muted); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .icon-moon { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
+    }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+    .header-cta {
+      padding: 10px 28px; background: var(--primary); color: #fff;
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      border: none; border-radius: 100px; cursor: pointer;
+      transition: transform 200ms ease, background 200ms ease; text-decoration: none;
+    }
+    .header-cta:hover { background: var(--primary-dark); color: #fff; transform: translateY(-1px); }
+    .page-main {
+      min-height: 100vh; padding: 140px 32px 100px;
+      max-width: 960px; margin: 0 auto;
+    }
+    .eyebrow {
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .page-sub {
+      font-size: 18px; color: var(--text-muted); max-width: 520px;
+      line-height: 1.7; margin-bottom: 56px;
+    }
+    .form-container {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+    }
+    .form-container iframe {
+      width: 100%; min-height: 680px; border: none; display: block;
+    }
+    .site-footer {
+      border-top: 1px solid var(--border); padding: 48px 32px; text-align: center;
+    }
+    .footer-links {
+      display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;
+    }
+    .footer-links a { color: var(--text-muted); font-size: 13px; letter-spacing: 0.5px; transition: color 200ms ease; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-copy { color: var(--text-muted); font-size: 12px; letter-spacing: 0.5px; }
+    @media (max-width: 480px) {
+      .site-header { padding: 14px 20px; }
+      .site-header .logo { height: 26px; }
+      .header-cta { padding: 8px 20px; font-size: 13px; }
+      .page-main { padding: 120px 20px 80px; }
+    }
+  </style>
+  <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo">
+    <div class="header-right">
+      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="index.html#download" class="header-cta">Try Free for 14 Days</a>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <p class="eyebrow">Get in Touch</p>
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-sub">Have a question, found a bug, or have a suggestion to make The Pie Lab even better? We read every submission and appreciate your feedback.</p>
+
+    <div class="form-container">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeMsZ-5EMMaGf1o_jw6YD_V_tr_W_1QXiyrdn2Vb96aIyG69A/viewform?embedded=true"
+        title="Pie Lab Feedback Form"
+        loading="lazy">
+        Loading form&hellip;
+      </iframe>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 The Pie Lab. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('themeToggle');
+      const stored = localStorage.getItem('theme');
+      if (stored) document.documentElement.setAttribute('data-theme', stored);
+      toggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const next = isDark ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
