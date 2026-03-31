@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Complete Guide to Making Chicago Tavern-Style Pizza at Home — The Pie Lab</title>
+  <meta name="description" content="Cracker-thin crust, square party cut, provolone-heavy cheese blend. Here's why tavern-style is harder than it looks — and the system serious bakers use to nail it consistently.">
+  <link rel="canonical" href="https://pielab.app/blog/chicago-tavern-style-pizza.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/favicon-32.svg">
+  <meta name="theme-color" content="#f3ebe2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0c0a" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="The Complete Guide to Making Chicago Tavern-Style Pizza at Home — The Pie Lab">
+  <meta property="og:description" content="Cracker-thin crust, square party cut, provolone-heavy cheese blend. Here's why tavern-style is harder than it looks — and the system serious bakers use to nail it consistently.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pielab.app/blog/chicago-tavern-style-pizza.html">
+  <meta property="og:image" content="https://pielab.app/assets/blog/chicago-tavern.webp">
+  <meta property="article:published_time" content="2026-03-31">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Complete Guide to Making Chicago Tavern-Style Pizza at Home — The Pie Lab">
+  <meta name="twitter:description" content="Cracker-thin crust, square party cut, provolone-heavy cheese blend. Here's why tavern-style is harder than it looks — and the system serious bakers use to nail it consistently.">
+  <meta name="twitter:image" content="https://pielab.app/assets/blog/chicago-tavern.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f3ebe2; --bg-alt: #ede4da; --card: #faf6f1;
+      --primary: #922b21; --primary-dark: #7b241c; --accent: #c9954a;
+      --text: #1a1410; --text-muted: #5a4e47; --white: #1a1410;
+      --border: #d5c9bc; --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --header-bg: rgba(243, 235, 226, 0.85);
+      --glow: rgba(146, 43, 33, 0.06);
+      --noise-opacity: 0.02;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
+        --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
+        --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
+        --border: #28231e; --shadow: 0 4px 24px rgba(0,0,0,0.3);
+        --header-bg: rgba(14, 12, 10, 0.8);
+        --glow: rgba(196, 96, 75, 0.08);
+        --noise-opacity: 0.03;
+      }
+    }
+
+    [data-theme="dark"] {
+      --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
+      --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
+      --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
+      --border: #28231e; --shadow: 0 4px 24px rgba(0,0,0,0.3);
+      --header-bg: rgba(14, 12, 10, 0.8);
+      --glow: rgba(196, 96, 75, 0.08);
+      --noise-opacity: 0.03;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body); background: var(--bg);
+      color: var(--text); line-height: 1.7; font-size: 17px;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+
+    body::after {
+      content: ''; position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999;
+      opacity: var(--noise-opacity);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 32px; background: var(--header-bg);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-header .logo { height: 32px; width: auto; }
+    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .site-header .logo { filter: none; }
+    }
+    [data-theme="dark"] .site-header .logo { filter: none; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .theme-toggle {
+      background: none; border: 1px solid var(--border); border-radius: 100px;
+      padding: 8px; cursor: pointer; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: color 200ms ease, border-color 200ms ease; line-height: 1;
+    }
+    .theme-toggle:hover { color: var(--white); border-color: var(--text-muted); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .icon-moon { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
+    }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+    .header-cta {
+      padding: 10px 28px; background: var(--primary); color: #fff;
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      border: none; border-radius: 100px; cursor: pointer;
+      transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+      text-decoration: none;
+    }
+    .header-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(146, 43, 33, 0.25);
+      background: var(--primary-dark); color: #fff; text-decoration: none;
+    }
+
+    /* ── ARTICLE LAYOUT ── */
+    .article-header {
+      max-width: 720px; margin: 0 auto;
+      padding: 160px 32px 48px;
+      text-align: center;
+    }
+    .article-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      letter-spacing: 0.5px; margin-bottom: 32px;
+      transition: color 200ms ease; text-decoration: none;
+    }
+    .article-back:hover { color: var(--primary); text-decoration: none; }
+    .article-back svg { width: 14px; height: 14px; }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+      font-size: 13px; color: var(--text-muted); letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .article-tag {
+      padding: 3px 10px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: var(--accent); font-weight: 600; font-size: 11px;
+      letter-spacing: 1px; text-transform: uppercase;
+      border-radius: 4px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700; color: var(--white);
+      line-height: 1.12; margin-bottom: 20px;
+    }
+
+    .article-subtitle {
+      font-size: 19px; color: var(--text-muted);
+      line-height: 1.7; max-width: 580px; margin: 0 auto;
+    }
+
+    /* ── HERO IMAGE ── */
+    .article-hero {
+      max-width: 900px; margin: 0 auto 64px;
+      padding: 0 32px;
+    }
+    .article-hero img {
+      width: 100%; border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      max-width: 680px; margin: 0 auto;
+      padding: 0 32px 100px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 28px; font-weight: 700;
+      color: var(--white); line-height: 1.2;
+      margin: 56px 0 20px;
+    }
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 700;
+      color: var(--white); line-height: 1.25;
+      margin: 40px 0 16px;
+    }
+    .article-body p {
+      margin-bottom: 24px;
+      font-size: 17px; line-height: 1.8;
+      color: var(--text);
+    }
+    .article-body ul, .article-body ol {
+      margin: 0 0 24px 24px;
+      font-size: 17px; line-height: 1.8;
+      color: var(--text);
+    }
+    .article-body li { margin-bottom: 8px; }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 16px 0 16px 24px;
+      margin: 32px 0;
+      font-style: italic; color: var(--text-muted);
+      font-size: 18px; line-height: 1.7;
+    }
+    .article-body img {
+      width: 100%; border-radius: 12px;
+      border: 1px solid var(--border);
+      margin: 32px 0;
+    }
+    .article-body strong { color: var(--white); }
+    .article-body hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── VARIABLE GRID ── */
+    .var-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .var-cell {
+      background: var(--card);
+      padding: 20px 22px;
+    }
+    .var-cell .vc-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 6px;
+    }
+    .var-cell .vc-value {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      color: var(--white); margin-bottom: 4px;
+    }
+    .var-cell .vc-note {
+      font-size: 14px; color: var(--text-muted); line-height: 1.55;
+    }
+    @media (max-width: 500px) {
+      .var-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── INLINE TAG ── */
+    .inline-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: var(--accent); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      border-radius: 4px; vertical-align: middle;
+      margin-left: 4px; position: relative; top: -1px;
+    }
+
+    /* ── ARTICLE CTA ── */
+    .article-cta {
+      max-width: 680px; margin: 0 auto;
+      padding: 0 32px 100px;
+      text-align: center;
+    }
+    .article-cta-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 48px 40px;
+      box-shadow: var(--shadow); position: relative;
+    }
+    .article-cta-card::before {
+      content: '';
+      position: absolute; top: -1px; left: 30%; right: 30%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      border-radius: 2px;
+    }
+    .article-cta-card h3 {
+      font-family: var(--font-display); font-size: 24px;
+      font-weight: 700; color: var(--white); margin-bottom: 12px;
+    }
+    .article-cta-card p {
+      font-size: 16px; color: var(--text-muted);
+      line-height: 1.7; margin-bottom: 28px;
+    }
+    .article-cta-btn {
+      display: inline-block; padding: 14px 40px;
+      background: var(--primary); color: #fff;
+      font-family: var(--font-body); font-size: 15px; font-weight: 600;
+      border-radius: 100px; text-decoration: none;
+      transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+    }
+    .article-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(146, 43, 33, 0.2);
+      background: var(--primary-dark); color: #fff; text-decoration: none;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border); padding: 48px 32px; text-align: center;
+    }
+    .footer-links {
+      display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;
+    }
+    .footer-links a { color: var(--text-muted); font-size: 13px; letter-spacing: 0.5px; transition: color 200ms ease; text-decoration: none; }
+    .footer-links a:hover { color: var(--primary); text-decoration: none; }
+    .footer-copy { color: var(--text-muted); font-size: 12px; letter-spacing: 0.5px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .site-header { padding: 14px 20px; }
+      .site-header .logo { height: 26px; }
+      .header-cta { padding: 8px 20px; font-size: 13px; }
+      .article-header { padding: 130px 20px 40px; }
+      .article-hero { padding: 0 20px; }
+      .article-body { padding: 0 20px 80px; }
+      .article-cta { padding: 0 20px 80px; }
+      .article-cta-card { padding: 36px 24px; }
+    }
+  </style>
+  <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <a href="../index.html"><img src="../assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo"></a>
+    <div class="header-right">
+      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="../index.html#download" class="header-cta">Try Free for 14 Days</a>
+    </div>
+  </header>
+
+  <!-- ── ARTICLE HEADER ── -->
+  <header class="article-header">
+    <a href="./" class="article-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Blog
+    </a>
+    <div class="article-meta">
+      <span class="article-tag">Style Guide</span>
+      <time datetime="2026-03-31">Mar 31, 2026</time>
+      &middot; 8 min read
+    </div>
+    <h1 class="article-title">The Complete Guide to Making Chicago Tavern-Style Pizza at Home</h1>
+    <p class="article-subtitle">Cracker-thin crust, square party cut, provolone-heavy cheese blend. Here's why tavern-style is harder than it looks — and the system serious bakers use to nail it consistently.</p>
+  </header>
+
+  <!-- ── HERO IMAGE ── -->
+  <div class="article-hero">
+    <img src="../assets/blog/chicago-tavern.webp" alt="Chicago tavern-style pizza on a raised pan in a classic bar setting">
+  </div>
+
+  <!-- ── ARTICLE BODY ── -->
+  <article class="article-body">
+
+    <p>Tavern-style pizza doesn't come from a chain. It comes from neighborhood bars and corner spots that fed drinkers and families for decades without making a big deal out of it. The pies were thin, crispy, cut into squares, and built to be eaten standing up. No one called it artisan. It was just how pizza worked in Chicago.</p>
+
+    <p>The style has its own logic: low hydration dough rolled paper-thin, par-baked or docked aggressively so it stays flat, a provolone-heavy cheese blend that melts into the crust instead of pooling on top, and a square party cut that means every piece is roughly the same size and everyone gets some crust. It's a completely different philosophy from Neapolitan or New York. The crust is the point. It's not a vehicle — it's a structure.</p>
+
+    <p>If you've eaten it at a good Chicago tavern and tried to recreate it at home, you already know how wrong a first attempt can go. The crust puffs. The edges are soft. The cheese slides. It tastes fine but it doesn't taste right. Here's why, and here's what to do about it.</p>
+
+    <h2>Why Tavern-Style Is Harder to Replicate at Home Than It Looks</h2>
+
+    <p>The crust is the problem. Not the sauce, not the toppings — the crust. And specifically, the way most home bakers handle the dough before it hits the oven.</p>
+
+    <p>Tavern-style dough is low hydration by design, somewhere in the <strong>50 to 55 percent range</strong> depending on who you ask. That's meaningfully drier than almost any other pizza style. The dough is stiff, it doesn't stretch easily, and it has to be rolled out with a pin rather than hand-stretched. If you've been developing your technique on New York or Neapolitan dough, that muscle memory works against you here.</p>
+
+    <p>The rollout is where most home bakers lose it. The dough needs to go thin — real thin, 2 to 3 millimeters — and it has to be even. Not mostly even. Actually even. Thick spots puff and go chewy. Thin spots burn. The goal is a surface that bakes into a single, uniform cracker. Achieving that consistently takes practice, and it takes starting with the right formula.</p>
+
+    <p>Then there's the puff problem. Tavern-style crust stays flat. If yours is bubbling up in the oven, you either didn't dock it aggressively enough, your fermentation went too long, or your oven isn't hot enough to set the crust before the steam has time to work. Probably some combination of all three.</p>
+
+    <p>The rollout tears are a separate issue. Low hydration dough is less elastic than what most home bakers are used to. If you're working the dough too cold, or if you haven't let it rest enough after balling, it'll fight you and tear instead of rolling smooth. Resting is not optional here.</p>
+
+    <h2>The Variables That Make or Break a Tavern-Style Bake</h2>
+
+    <p>There are six that actually matter. Everything else is detail.</p>
+
+    <div class="var-grid">
+      <div class="var-cell">
+        <p class="vc-label">Hydration</p>
+        <p class="vc-value">50 – 55%</p>
+        <p class="vc-note">Lower end gives you a drier, crispier cracker. Higher end is more forgiving on the rollout. Don't go above 58% or the crust gets soft.</p>
+      </div>
+      <div class="var-cell">
+        <p class="vc-label">Roll-out Thickness</p>
+        <p class="vc-value">2 – 3 mm</p>
+        <p class="vc-note">Use a rolling pin. Measure with a ruler the first few times. Even thickness matters more than exact thickness.</p>
+      </div>
+      <div class="var-cell">
+        <p class="vc-label">Docking</p>
+        <p class="vc-value">Thorough</p>
+        <p class="vc-note">Every inch. A docker is worth it. A fork works but you'll miss spots. The goal is zero air pockets, not fewer.</p>
+      </div>
+      <div class="var-cell">
+        <p class="vc-label">Bake Surface</p>
+        <p class="vc-value">Steel or Screen</p>
+        <p class="vc-note">Steel gives the best bottom crisp. Screens work for a more even bake. Stone is acceptable. Sheet pan will give you soft bottom.</p>
+      </div>
+      <div class="var-cell">
+        <p class="vc-label">Oven Temp</p>
+        <p class="vc-value">500 – 550 &deg;F</p>
+        <p class="vc-note">High heat sets the crust fast. If your oven maxes at 450, preheat longer and live with a slightly longer bake time.</p>
+      </div>
+      <div class="var-cell">
+        <p class="vc-label">Cheese Blend</p>
+        <p class="vc-value">Provolone-Forward</p>
+        <p class="vc-note">Provolone plus whole milk mozzarella. The provolone gives the sharpness and melt behavior that defines the style.</p>
+      </div>
+    </div>
+
+    <p>The cheese blend deserves more attention than it usually gets. Tavern-style is not a mozzarella pie. The provolone component is what gives it that slightly sharp, almost tangy undercurrent and the way the cheese settles into the crust rather than sitting on top of it. A common ratio is <strong>60% provolone, 40% whole milk low-moisture mozzarella</strong>. Some spots go 70/30. You want the cheese applied lightly enough that it doesn't pool.</p>
+
+    <p>The bake surface is also non-negotiable if you want a proper bottom. A preheated steel at 550 &deg;F will give you the cracker bottom that makes this style recognizable. A cold sheet pan will give you something limp and disappointing regardless of how good your dough is.</p>
+
+    <h2>Why Consistency Is the Real Problem</h2>
+
+    <p>Getting one good tavern bake is satisfying. Getting ten in a row that are all equally good is the actual goal, and it's harder than it sounds.</p>
+
+    <p>The style has tight tolerances. Small changes in hydration have visible effects on the finished crust. A slightly thicker rollout changes the texture completely. Different fermentation times affect how the dough behaves under the roller and how much it tries to spring back. If you're not tracking what you did each time, you're running blind.</p>
+
+    <blockquote>One good bake means you got lucky or got close. A consistent bake means you understand what you're doing. Those are two different things.</blockquote>
+
+    <p>Most home bakers have an informal system at best. They remember roughly what they did, maybe write something in the notes app on their phone, maybe take a photo. When the next bake comes out differently, they can't pinpoint why. Was it the hydration? Did they dock less aggressively? Did they pull it from the fridge earlier? Without a real record, there's no way to know.</p>
+
+    <p>The bakers who actually dial in this style are the ones who treat each bake as a data point. They record the formula, the fermentation method and timing, the bake surface and temperature, and the result. They can look back at a 4-star bake and a 2-star bake and see exactly what was different. Over time, they build a picture of what works in their specific kitchen with their specific flour and their specific oven.</p>
+
+    <p>That picture is worth more than any recipe you'll find online, because it's calibrated to you.</p>
+
+    <h2>How The Pie Lab Fixes This</h2>
+
+    <p>The Pie Lab is a mobile app built around the full pizza-making workflow, and Chicago Tavern is one of 13 supported styles with a dedicated calculator preset. <span class="inline-tag">Tavern Style</span></p>
+
+    <p>The <strong>calculator</strong> handles the dough formula using baker's percentages. You put in the number of pies and the size, and it gives you exact gram measurements for every ingredient at the hydration and dough ball weight dialed in for tavern-style. You're not estimating. You're not converting from cups. You get a precise formula every time, and you can adjust hydration within the style's target range if you want to experiment.</p>
+
+    <p>The <strong>dough scheduler</strong> works backward from your mealtime. You tell it when you want to eat. It tells you when to mix, when to ball, when to pull from the fridge, when to bring to room temp, and when to roll out. No mental math, no looking up fermentation guides and trying to translate them to your specific dinner time.</p>
+
+    <p>The <strong>bake journal</strong> is where the consistency problem actually gets solved. After each bake you log the formula that was used, the fermentation details, the bake surface and temperature, a photo, and a star rating. You can add notes on what worked and what didn't. The next time you bake, you have a real record to work from instead of a vague memory. After four or five sessions you'll start to see patterns. After ten, you'll know exactly what your tavern-style looks like when it's right and exactly what variables pushed it there.</p>
+
+    <p><strong>Custom dough profiles</strong> let you save formulas that work. If you find that 52% hydration rolls out better in your kitchen with your flour, you save that as your tavern preset and pull it up next time. No rebuilding from scratch.</p>
+
+    <p>The app costs $4.99 one time. No subscription. It works fully offline, requires no account, and is available on iOS and Android. For anyone who bakes tavern-style more than twice a month, the value is obvious. A single wasted bag of flour costs more than the app.</p>
+
+  </article>
+
+  <!-- ── CTA CARD ── -->
+  <div class="article-cta">
+    <div class="article-cta-card">
+      <h3>Stop guessing. Start building a record.</h3>
+      <p>Tavern-style preset included. Dough calculator, smart scheduler, bake journal, and 200+ expert tips. $4.99 one-time. No subscription, no account, no internet required.</p>
+      <a href="../index.html#download" class="article-cta-btn">Try Free for 14 Days</a>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="./">Blog</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../refund.html">Refund Policy</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 The Pie Lab. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('themeToggle');
+      toggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var next = isDark ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
