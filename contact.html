@@ -14,15 +14,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
     :root {
       --bg: #f3ebe2; --bg-alt: #ede4da; --card: #faf6f1;
       --primary: #922b21; --primary-dark: #7b241c; --accent: #c9954a;
       --text: #1a1410; --text-muted: #5a4e47; --white: #1a1410;
       --border: #d5c9bc; --shadow: 0 4px 24px rgba(0,0,0,0.08);
       --header-bg: rgba(243, 235, 226, 0.85);
+      --glow: rgba(146, 43, 33, 0.06);
+      --noise-opacity: 0.02;
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'Inter', system-ui, sans-serif;
+      --input-bg: #f3ebe2;
+      --focus-ring: rgba(146, 43, 33, 0.3);
     }
+
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
         --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
@@ -30,22 +36,53 @@
         --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
         --border: #28231e; --shadow: 0 4px 24px rgba(0,0,0,0.3);
         --header-bg: rgba(14, 12, 10, 0.8);
+        --glow: rgba(196, 96, 75, 0.08);
+        --noise-opacity: 0.03;
+        --input-bg: #1e1a16;
+        --focus-ring: rgba(196, 96, 75, 0.3);
       }
     }
+
     [data-theme="dark"] {
       --bg: #0e0c0a; --bg-alt: #121010; --card: #171412;
       --primary: #c4604b; --primary-dark: #d47a68; --accent: #c9a04a;
       --text: #ddd5cc; --text-muted: #847a70; --white: #f0e8e0;
       --border: #28231e; --shadow: 0 4px 24px rgba(0,0,0,0.3);
       --header-bg: rgba(14, 12, 10, 0.8);
+      --glow: rgba(196, 96, 75, 0.08);
+      --noise-opacity: 0.03;
+      --input-bg: #1e1a16;
+      --focus-ring: rgba(196, 96, 75, 0.3);
     }
+
     html { scroll-behavior: smooth; }
+
     body {
       font-family: var(--font-body); background: var(--bg);
       color: var(--text); line-height: 1.7; font-size: 17px;
       -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
+
+    /* Noise texture overlay — matches index.html */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 9999;
+      opacity: var(--noise-opacity);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
     a { color: var(--accent); text-decoration: none; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── HEADER ── */
     .site-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 18px 32px; background: var(--header-bg);
@@ -81,32 +118,195 @@
       padding: 10px 28px; background: var(--primary); color: #fff;
       font-family: var(--font-body); font-size: 14px; font-weight: 600;
       border: none; border-radius: 100px; cursor: pointer;
-      transition: transform 200ms ease, background 200ms ease; text-decoration: none;
+      transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+      text-decoration: none;
     }
-    .header-cta:hover { background: var(--primary-dark); color: #fff; transform: translateY(-1px); }
-    .page-main {
-      min-height: 100vh; padding: 140px 32px 100px;
-      max-width: 960px; margin: 0 auto;
+    .header-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(146, 43, 33, 0.25);
+      background: var(--primary-dark); color: #fff;
     }
+
+    /* ── SHARED SECTION TYPOGRAPHY ── */
     .eyebrow {
       font-family: var(--font-body); font-size: 12px; font-weight: 600;
-      letter-spacing: 3px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--primary);
+      margin-bottom: 16px;
     }
-    .page-title {
-      font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 20px;
     }
-    .page-sub {
-      font-size: 18px; color: var(--text-muted); max-width: 520px;
-      line-height: 1.7; margin-bottom: 56px;
+    .section-sub {
+      font-size: 17px; color: var(--text-muted); line-height: 1.75;
+      max-width: 520px;
     }
-    .form-container {
+
+    /* ── HERO ── */
+    .contact-hero {
+      min-height: 52vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 160px 32px 80px;
+      position: relative; overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-hero .section-title {
+      font-size: clamp(36px, 5vw, 56px); line-height: 1.1;
+    }
+    .contact-hero .section-sub {
+      margin: 0 auto; text-align: center; max-width: 540px;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      padding: 0 32px 120px;
+      max-width: 680px; margin: 0 auto;
+    }
+
+    .form-card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+      border-radius: 16px; padding: 56px 48px;
+      box-shadow: var(--shadow); position: relative;
     }
-    .form-container iframe {
-      width: 100%; min-height: 680px; border: none; display: block;
+    .form-card::before {
+      content: '';
+      position: absolute; top: -1px; left: 30%; right: 30%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      border-radius: 2px;
     }
+
+    /* ── FORM ELEMENTS ── */
+    .form-group { margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.5px; color: var(--text); margin-bottom: 8px;
+    }
+    .form-label .required { color: var(--primary); margin-left: 2px; }
+    .form-label .optional { color: var(--text-muted); font-weight: 400; font-size: 12px; }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: 14px 16px;
+      background: var(--input-bg); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text);
+      font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+      -webkit-appearance: none; appearance: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--text-muted); opacity: 0.6;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a4e47' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px; cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 140px; }
+
+    .form-section-label {
+      font-family: var(--font-display); font-size: 18px; font-weight: 700;
+      color: var(--white); margin-bottom: 6px; margin-top: 8px;
+    }
+    .form-section-hint {
+      font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;
+    }
+    .form-divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+    /* ── HONEYPOT ── */
+    .form-hp { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+
+    /* ── SUBMIT BUTTON ── */
+    .form-submit {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 48px; background: var(--primary); color: #fff;
+      font-family: var(--font-body); font-size: 16px; font-weight: 600;
+      border: none; border-radius: 100px; cursor: pointer;
+      transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+      width: 100%; justify-content: center;
+    }
+    .form-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(146, 43, 33, 0.2);
+      background: var(--primary-dark);
+    }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-submit .spinner {
+      width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin 0.6s linear infinite; display: none;
+    }
+    .form-submit.loading .spinner { display: block; }
+    .form-submit.loading .btn-text { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── SUCCESS / ERROR STATES ── */
+    .form-result { text-align: center; padding: 48px 24px; display: none; }
+    .form-result.visible { display: block; }
+    .form-result-icon {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .form-result-icon.success { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); }
+    .form-result-icon.error { background: color-mix(in srgb, var(--primary) 15%, transparent); color: var(--primary); }
+    .form-result-icon svg { width: 28px; height: 28px; }
+    .form-result h3 {
+      font-family: var(--font-display); font-size: 24px; font-weight: 700;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .form-result p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+    .form-result .form-submit { margin-top: 28px; width: auto; }
+
+    /* ── VALUES STRIP ── */
+    .values-section {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 48px; max-width: 900px; margin: 0 auto;
+      padding: 0 32px; text-align: center;
+    }
+    .value-item h3 {
+      font-family: var(--font-display); font-size: 20px;
+      font-weight: 700; color: var(--white); margin-bottom: 10px;
+    }
+    .value-item p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+    .value-icon {
+      width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: var(--accent);
+    }
+    .value-icon svg { width: 22px; height: 22px; }
+
+    /* ── SOCIAL BAR ── */
+    .social-bar {
+      padding: 48px 32px; text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .social-bar a {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--text-muted); font-size: 14px; font-weight: 500;
+      letter-spacing: 0.5px; transition: color 200ms ease; text-decoration: none;
+    }
+    .social-bar a:hover { color: var(--primary); }
+    .social-bar a svg { width: 20px; height: 20px; }
+
+    /* ── FOOTER ── */
     .site-footer {
       border-top: 1px solid var(--border); padding: 48px 32px; text-align: center;
     }
@@ -116,16 +316,29 @@
     .footer-links a { color: var(--text-muted); font-size: 13px; letter-spacing: 0.5px; transition: color 200ms ease; }
     .footer-links a:hover { color: var(--primary); }
     .footer-copy { color: var(--text-muted); font-size: 12px; letter-spacing: 0.5px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .values-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-card { padding: 36px 28px; }
+      .contact-hero { padding: 140px 24px 60px; min-height: auto; }
+    }
     @media (max-width: 480px) {
       .site-header { padding: 14px 20px; }
       .site-header .logo { height: 26px; }
       .header-cta { padding: 8px 20px; font-size: 13px; }
-      .page-main { padding: 120px 20px 80px; }
+      .form-section { padding: 0 20px 80px; }
+      .form-card { padding: 32px 20px; }
     }
   </style>
   <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
 </head>
 <body>
+
+  <!-- ── HEADER ── -->
   <header class="site-header">
     <img src="assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo">
     <div class="header-right">
@@ -137,21 +350,152 @@
     </div>
   </header>
 
-  <main class="page-main">
-    <p class="eyebrow">Get in Touch</p>
-    <h1 class="page-title">Contact Us</h1>
-    <p class="page-sub">Have a question, found a bug, or have a suggestion to make The Pie Lab even better? We read every submission and appreciate your feedback.</p>
-
-    <div class="form-container">
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeMsZ-5EMMaGf1o_jw6YD_V_tr_W_1QXiyrdn2Vb96aIyG69A/viewform?embedded=true"
-        title="Pie Lab Feedback Form"
-        loading="lazy">
-        Loading form&hellip;
-      </iframe>
+  <!-- ── HERO ── -->
+  <section class="contact-hero">
+    <div class="reveal">
+      <p class="eyebrow">Get in Touch</p>
+      <h1 class="section-title">We build this for you.<br>Tell us how to make it better.</h1>
+      <p class="section-sub">Bug, question, or idea — every submission gets read by the team that builds The Pie Lab. Most replies within 24 hours.</p>
     </div>
-  </main>
+  </section>
 
+  <!-- ── FORM ── -->
+  <div class="form-section">
+    <div class="form-card reveal">
+      <form id="feedbackForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="feedbackType">Type of Feedback <span class="required">*</span></label>
+          <select class="form-select" id="feedbackType" name="feedbackType" required>
+            <option value="" disabled selected>Select one&hellip;</option>
+            <option value="Bug Report">Bug Report</option>
+            <option value="Question">Question</option>
+            <option value="Suggestion for Improvement">Suggestion for Improvement</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject <span class="required">*</span></label>
+          <input class="form-input" type="text" id="subject" name="subject" placeholder="Brief summary of your feedback" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="details">Details <span class="required">*</span></label>
+          <textarea class="form-textarea" id="details" name="details" placeholder="Tell us more &mdash; steps to reproduce a bug, your idea, or your question&hellip;" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email <span class="optional">(optional &mdash; if you'd like a reply)</span></label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+
+        <hr class="form-divider">
+
+        <p class="form-section-label">Device Info</p>
+        <p class="form-section-hint">Helps us diagnose issues faster. We auto-detect what we can.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="deviceType">Phone Type <span class="required">*</span></label>
+            <select class="form-select" id="deviceType" name="deviceType" required>
+              <option value="" disabled selected>Select&hellip;</option>
+              <option value="iPhone">iPhone</option>
+              <option value="Android">Android</option>
+              <option value="iPad">iPad</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="osVersion">OS Version <span class="required">*</span></label>
+            <input class="form-input" type="text" id="osVersion" name="osVersion" placeholder="e.g. iOS 18.3, Android 15">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="appVersion">App Version <span class="optional">(optional)</span></label>
+            <input class="form-input" type="text" id="appVersion" name="appVersion" placeholder="e.g. 1.2.0">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="deviceModel">Device Model <span class="optional">(optional)</span></label>
+            <input class="form-input" type="text" id="deviceModel" name="deviceModel" placeholder="e.g. iPhone 15, Pixel 8">
+          </div>
+        </div>
+
+        <!-- Honeypot -->
+        <div class="form-hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <input type="hidden" id="userAgent" name="userAgent">
+        <input type="hidden" id="screenSize" name="screenSize">
+        <input type="hidden" id="timestamp" name="timestamp">
+        <input type="hidden" id="loadTime" name="loadTime">
+
+        <button type="submit" class="form-submit" id="submitBtn">
+          <span class="btn-text">Send Feedback</span>
+          <span class="spinner"></span>
+        </button>
+      </form>
+
+      <!-- SUCCESS -->
+      <div class="form-result" id="successMsg">
+        <div class="form-result-icon success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Thank you!</h3>
+        <p>Your feedback has been submitted. We'll review it shortly.</p>
+        <button class="form-submit" onclick="resetForm()" type="button" style="width: auto;">Send Another</button>
+      </div>
+
+      <!-- ERROR -->
+      <div class="form-result" id="errorMsg">
+        <div class="form-result-icon error">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        </div>
+        <h3>Something went wrong</h3>
+        <p>Your feedback couldn't be submitted. Please try again or email us at <a href="mailto:hello@pielab.app">hello@pielab.app</a>.</p>
+        <button class="form-submit" onclick="resetForm()" type="button" style="width: auto;">Try Again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WHAT HAPPENS NEXT ── -->
+  <section class="values-section">
+    <div class="values-grid reveal">
+      <div class="value-item">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>We Read Everything</h3>
+        <p>Every submission is reviewed by the team that actually builds the app. No support bots, no ticket queues.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Fast Replies</h3>
+        <p>Most feedback gets a response within 24 hours. Bug reports are prioritized and patched in the next update.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Your Ideas Ship</h3>
+        <p>Many of the best features in The Pie Lab started as user suggestions. Tell us what you need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOCIAL BAR ── -->
+  <div class="social-bar">
+    <a href="https://instagram.com/pielab.app" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+      @pielab.app
+    </a>
+  </div>
+
+  <!-- ── FOOTER ── -->
   <footer class="site-footer">
     <nav class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
@@ -163,18 +507,133 @@
   </footer>
 
   <script>
+    // ── Theme toggle ──
     (function() {
-      const toggle = document.getElementById('themeToggle');
-      const stored = localStorage.getItem('theme');
-      if (stored) document.documentElement.setAttribute('data-theme', stored);
-      toggle.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        const next = isDark ? 'light' : 'dark';
+      var toggle = document.getElementById('themeToggle');
+      toggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var next = isDark ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
       });
     })();
+
+    // ── Scroll reveal ──
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+    // ── Anti-spam: record page load time ──
+    var PAGE_LOADED_AT = Date.now();
+
+    // ── Auto-detect device info ──
+    (function() {
+      var ua = navigator.userAgent;
+      document.getElementById('userAgent').value = ua;
+      document.getElementById('screenSize').value = screen.width + 'x' + screen.height;
+
+      var deviceSelect = document.getElementById('deviceType');
+      var osInput = document.getElementById('osVersion');
+
+      if (/iPad/.test(ua)) {
+        deviceSelect.value = 'iPad';
+      } else if (/iPhone/.test(ua)) {
+        deviceSelect.value = 'iPhone';
+      } else if (/Android/.test(ua)) {
+        deviceSelect.value = 'Android';
+      }
+
+      var osMatch = ua.match(/CPU (?:iPhone )?OS (\d+[_\.]\d+(?:[_\.]\d+)?)/);
+      if (osMatch) {
+        osInput.value = 'iOS ' + osMatch[1].replace(/_/g, '.');
+      } else {
+        osMatch = ua.match(/Android (\d+(?:\.\d+)?)/);
+        if (osMatch) osInput.value = 'Android ' + osMatch[1];
+      }
+    })();
+
+    // ── Form submission ──
+    // TODO: Replace this URL with your deployed Google Apps Script web app URL
+    var SCRIPT_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+
+    var form = document.getElementById('feedbackForm');
+    var submitBtn = document.getElementById('submitBtn');
+    var MIN_SUBMIT_MS = 3000;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      // Anti-spam: honeypot
+      if (form.website.value) { fakeSuccess(); return; }
+
+      // Anti-spam: timing
+      var elapsed = Date.now() - PAGE_LOADED_AT;
+      if (elapsed < MIN_SUBMIT_MS) { fakeSuccess(); return; }
+
+      document.getElementById('timestamp').value = new Date().toISOString();
+      document.getElementById('loadTime').value = Math.round(elapsed / 1000) + 's';
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      var data = {
+        feedbackType: form.feedbackType.value,
+        subject: form.subject.value,
+        details: form.details.value,
+        email: form.email.value,
+        deviceType: form.deviceType.value,
+        osVersion: form.osVersion.value,
+        appVersion: form.appVersion.value,
+        deviceModel: form.deviceModel.value,
+        userAgent: form.userAgent.value,
+        screenSize: form.screenSize.value,
+        timestamp: form.timestamp.value,
+        timeOnPage: form.loadTime.value
+      };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function() {
+        form.style.display = 'none';
+        document.getElementById('successMsg').classList.add('visible');
+      })
+      .catch(function() {
+        form.style.display = 'none';
+        document.getElementById('errorMsg').classList.add('visible');
+      });
+    });
+
+    function fakeSuccess() {
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      setTimeout(function() {
+        form.style.display = 'none';
+        document.getElementById('successMsg').classList.add('visible');
+      }, 800);
+    }
+
+    function resetForm() {
+      form.reset();
+      form.style.display = '';
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+      document.getElementById('successMsg').classList.remove('visible');
+      document.getElementById('errorMsg').classList.remove('visible');
+      var ua = navigator.userAgent;
+      document.getElementById('userAgent').value = ua;
+      document.getElementById('screenSize').value = screen.width + 'x' + screen.height;
+    }
   </script>
 </body>
 </html>
