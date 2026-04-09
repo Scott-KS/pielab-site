@@ -45,6 +45,7 @@
         "operatingSystem": "iOS, Android",
         "description": "The complete pizza-making app with precision dough calculator, smart scheduling, bake journal, and a full knowledge hub.",
         "url": "https://pielab.app",
+        "installUrl": "https://apps.apple.com/us/app/the-pie-lab/id6761226323",
         "offers": {
           "@type": "Offer",
           "price": "4.99",
@@ -416,6 +417,12 @@
     .store-badge-text small { font-size: 10px; font-weight: 400; color: rgba(240, 232, 224, 0.6); line-height: 1; }
     .hero ~ * .store-badge-text small { color: var(--text-muted); }
     .store-badge-text span { font-size: 15px; font-weight: 600; line-height: 1.3; }
+
+    .store-badge.coming-soon {
+      opacity: 0.45;
+      pointer-events: none;
+      cursor: default;
+    }
 
     .hero-note {
       font-family: var(--font-mono);
@@ -1191,22 +1198,20 @@
     </p>
     <div class="hero-cta-group">
       <div class="store-badges">
-        <!-- TODO: Replace # with actual App Store URL -->
-        <a href="#" class="store-badge" aria-label="Download on the App Store">
+        <a href="https://apps.apple.com/us/app/the-pie-lab/id6761226323" class="store-badge" aria-label="Download on the App Store" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <div class="store-badge-text">
             <small>Download on the</small>
             <span>App Store</span>
           </div>
         </a>
-        <!-- TODO: Replace # with actual Google Play URL -->
-        <a href="#" class="store-badge" aria-label="Get it on Google Play">
+        <span class="store-badge coming-soon" aria-label="Coming soon to Google Play">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.35.2.8.19 1.25-.07l11.9-6.86-2.56-2.56-10.59 9.49zm-1.43-20.3C1.6 3.7 1.5 4.02 1.5 4.38v15.24c0 .36.1.68.25.92l.08.07 8.54-8.54v-.2L1.83 3.4l-.08.06zm14.89 10.96-2.85-2.85v-.21l2.85-2.85.06.04 3.38 1.92c.96.55.96 1.44 0 1.99l-3.38 1.92-.06.04zM3.18.24l11.9 6.86-2.56 2.56L2.43.17c.24-.15.5-.16.75.07z"/></svg>
           <div class="store-badge-text">
-            <small>Get it on</small>
+            <small>Coming Soon to</small>
             <span>Google Play</span>
           </div>
-        </a>
+        </span>
       </div>
       <p class="hero-note"><strong>Try everything free for 14 days</strong> &middot; No credit card &middot; No account required</p>
       <div class="social-proof">
@@ -1459,20 +1464,20 @@
         Download free. Try everything for 14 days. Make pizza your friends won't believe came from your kitchen.
       </p>
       <div class="cta-stores">
-        <a href="#" class="store-badge" aria-label="Download on the App Store">
+        <a href="https://apps.apple.com/us/app/the-pie-lab/id6761226323" class="store-badge" aria-label="Download on the App Store" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           <div class="store-badge-text">
             <small>Download on the</small>
             <span>App Store</span>
           </div>
         </a>
-        <a href="#" class="store-badge" aria-label="Get it on Google Play">
+        <span class="store-badge coming-soon" aria-label="Coming soon to Google Play">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.35.2.8.19 1.25-.07l11.9-6.86-2.56-2.56-10.59 9.49zm-1.43-20.3C1.6 3.7 1.5 4.02 1.5 4.38v15.24c0 .36.1.68.25.92l.08.07 8.54-8.54v-.2L1.83 3.4l-.08.06zm14.89 10.96-2.85-2.85v-.21l2.85-2.85.06.04 3.38 1.92c.96.55.96 1.44 0 1.99l-3.38 1.92-.06.04zM3.18.24l11.9 6.86-2.56 2.56L2.43.17c.24-.15.5-.16.75.07z"/></svg>
           <div class="store-badge-text">
-            <small>Get it on</small>
+            <small>Coming Soon to</small>
             <span>Google Play</span>
           </div>
-        </a>
+        </span>
       </div>
     </div>
   </section>
