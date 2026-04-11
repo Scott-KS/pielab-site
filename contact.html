@@ -388,38 +388,9 @@
           <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com">
         </div>
 
-        <hr class="form-divider">
 
-        <p class="form-section-label">Device Info</p>
-        <p class="form-section-hint">Helps us diagnose issues faster. We auto-detect what we can.</p>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="deviceType">Phone Type <span class="required">*</span></label>
-            <select class="form-select" id="deviceType" name="deviceType" required>
-              <option value="" disabled selected>Select&hellip;</option>
-              <option value="iPhone">iPhone</option>
-              <option value="Android">Android</option>
-              <option value="iPad">iPad</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="osVersion">OS Version <span class="required">*</span></label>
-            <input class="form-input" type="text" id="osVersion" name="osVersion" placeholder="e.g. iOS 18.3, Android 15">
-          </div>
-        </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="appVersion">App Version <span class="optional">(optional)</span></label>
-            <input class="form-input" type="text" id="appVersion" name="appVersion" placeholder="e.g. 1.2.0">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="deviceModel">Device Model <span class="optional">(optional)</span></label>
-            <input class="form-input" type="text" id="deviceModel" name="deviceModel" placeholder="e.g. iPhone 15, Pixel 8">
-          </div>
-        </div>
 
         <!-- Honeypot -->
         <div class="form-hp" aria-hidden="true">
@@ -427,10 +398,6 @@
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
 
-        <input type="hidden" id="userAgent" name="userAgent">
-        <input type="hidden" id="screenSize" name="screenSize">
-        <input type="hidden" id="timestamp" name="timestamp">
-        <input type="hidden" id="loadTime" name="loadTime">
 
         <button type="submit" class="form-submit" id="submitBtn">
           <span class="btn-text">Send Feedback</span>
@@ -534,35 +501,10 @@
     // ── Anti-spam: record page load time ──
     var PAGE_LOADED_AT = Date.now();
 
-    // ── Auto-detect device info ──
-    (function() {
-      var ua = navigator.userAgent;
-      document.getElementById('userAgent').value = ua;
-      document.getElementById('screenSize').value = screen.width + 'x' + screen.height;
-
-      var deviceSelect = document.getElementById('deviceType');
-      var osInput = document.getElementById('osVersion');
-
-      if (/iPad/.test(ua)) {
-        deviceSelect.value = 'iPad';
-      } else if (/iPhone/.test(ua)) {
-        deviceSelect.value = 'iPhone';
-      } else if (/Android/.test(ua)) {
-        deviceSelect.value = 'Android';
-      }
-
-      var osMatch = ua.match(/CPU (?:iPhone )?OS (\d+[_\.]\d+(?:[_\.]\d+)?)/);
-      if (osMatch) {
-        osInput.value = 'iOS ' + osMatch[1].replace(/_/g, '.');
-      } else {
-        osMatch = ua.match(/Android (\d+(?:\.\d+)?)/);
-        if (osMatch) osInput.value = 'Android ' + osMatch[1];
-      }
-    })();
-
     // ── Form submission ──
-    // TODO: Replace this URL with your deployed Google Apps Script web app URL
-    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza2lGtJDWSuRPN9eTBrxBtw5MjbXl2BZh1FA4go4d6VEIdULDgNuRA6t2ci3eG2qhS/exec';
+    // Posts directly to the "Feedback - Pie Lab Website" Google Form.
+    // Form responses auto-fill spreadsheet 12E9M_-nMY3TNyUha3SlUdbQrNffUxfLM3ftpDCLWkwg.
+    var FEEDBACK_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf6YxwXks2rh30-A2VML4basBkKXT93aPeURNBuK8OFbpANtw/formResponse';
 
     var form = document.getElementById('feedbackForm');
     var submitBtn = document.getElementById('submitBtn');
@@ -579,30 +521,16 @@
       var elapsed = Date.now() - PAGE_LOADED_AT;
       if (elapsed < MIN_SUBMIT_MS) { fakeSuccess(); return; }
 
-      document.getElementById('timestamp').value = new Date().toISOString();
-      document.getElementById('loadTime').value = Math.round(elapsed / 1000) + 's';
       submitBtn.classList.add('loading');
       submitBtn.disabled = true;
 
-      var data = {
-        feedbackType: form.feedbackType.value,
-        subject: form.subject.value,
-        details: form.details.value,
-        email: form.email.value,
-        deviceType: form.deviceType.value,
-        osVersion: form.osVersion.value,
-        appVersion: form.appVersion.value,
-        deviceModel: form.deviceModel.value,
-        userAgent: form.userAgent.value,
-        screenSize: form.screenSize.value,
-        timestamp: form.timestamp.value,
-        timeOnPage: form.loadTime.value
-      };
-
       var params = new URLSearchParams();
-      Object.keys(data).forEach(function(key) { params.append(key, data[key]); });
+      params.append('entry.1774398784', form.feedbackType.value);
+      params.append('entry.648691558', form.subject.value);
+      params.append('entry.1144475073', form.details.value);
+      params.append('entry.1525453067', form.email.value);
 
-      fetch(SCRIPT_URL, {
+      fetch(FEEDBACK_URL, {
         method: 'POST',
         mode: 'no-cors',
         body: params
@@ -633,9 +561,6 @@
       submitBtn.disabled = false;
       document.getElementById('successMsg').classList.remove('visible');
       document.getElementById('errorMsg').classList.remove('visible');
-      var ua = navigator.userAgent;
-      document.getElementById('userAgent').value = ua;
-      document.getElementById('screenSize').value = screen.width + 'x' + screen.height;
     }
   </script>
 </body>
