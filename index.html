@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Pie Lab — The Only Pizza App You'll Ever Need</title>
+  <title>The Pie Lab — Precision dough calculator, scheduler &amp; bake journal</title>
   <meta name="description" content="The Pie Lab is the most complete pizza-making app ever built. Precision dough calculator, smart scheduling, bake journal, and a full knowledge hub — all in one app.">
   <meta name="keywords" content="pizza app, pizza dough calculator, pizza recipe, dough scheduler, Neapolitan pizza, New York pizza, Detroit pizza, homemade pizza, pizza making">
-  <meta property="og:title" content="The Pie Lab — The Only Pizza App You'll Ever Need">
+  <meta property="og:title" content="The Pie Lab — Precision dough calculator, scheduler &amp; bake journal">
   <meta property="og:description" content="Precision dough calculator, smart scheduling, bake journal, and a full knowledge hub. Master every pizza style.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pielab.app">
   <meta property="og:image" content="https://pielab.app/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Pie Lab — The Only Pizza App You'll Ever Need">
+  <meta name="twitter:title" content="The Pie Lab — Precision dough calculator, scheduler &amp; bake journal">
   <meta name="twitter:description" content="Precision dough calculator, smart scheduling, bake journal, and a full knowledge hub. Master every pizza style.">
   <meta name="twitter:image" content="https://pielab.app/assets/og-image.jpg">
   <link rel="canonical" href="https://pielab.app/">
@@ -34,7 +34,7 @@
         "logo": "https://pielab.app/assets/logos/logo-stacked-light.svg",
         "contactPoint": {
           "@type": "ContactPoint",
-          "email": "hello@pielab.app",
+          "email": "pielab@mainstreetiq.com",
           "contactType": "customer support"
         }
       },
@@ -240,6 +240,19 @@
       align-items: center;
       gap: 16px;
     }
+
+    .header-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+
+    .header-link:hover { color: var(--accent); }
 
     .theme-toggle {
       background: none;
@@ -949,6 +962,227 @@
       line-height: 1.7;
     }
 
+    /* ── BLOG TEASER ── */
+    .blog-teaser-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .blog-teaser-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 56px;
+      padding: 0 40px;
+    }
+
+    .blog-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .blog-teaser-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
+
+    .blog-teaser-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .blog-teaser-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-teaser-body {
+      padding: 24px 24px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-teaser-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .blog-teaser-tag {
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .blog-teaser-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      margin: 0 0 12px;
+    }
+
+    .blog-teaser-excerpt {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin: 0;
+      flex: 1;
+    }
+
+    .blog-teaser-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .blog-teaser-cta a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 4px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+
+    .blog-teaser-cta a:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    /* ── WHO THIS IS FOR ── */
+    .audience-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .audience-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      padding: 0 40px;
+    }
+
+    .audience-list {
+      list-style: none;
+      padding: 0 40px;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .audience-list li {
+      font-family: var(--font-display);
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--text);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .audience-list li:last-child {
+      border-bottom: none;
+    }
+
+    .audience-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      max-width: 520px;
+      margin: 32px auto 0;
+      padding: 0 40px;
+      font-family: var(--font-mono);
+    }
+
+    /* ── COMPARISON ── */
+    .comparison-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .comparison-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 56px;
+      padding: 0 40px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .comparison-col {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 28px;
+    }
+
+    .comparison-col.winging {
+      opacity: 0.62;
+    }
+
+    .comparison-col h3 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+      font-weight: 500;
+    }
+
+    .comparison-col.dialed h3 {
+      color: var(--accent);
+    }
+
+    .comparison-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .comparison-col li {
+      font-family: var(--font-display);
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-col li:first-child {
+      padding-top: 0;
+    }
+
+    .comparison-col li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
     /* ── PRICING ── */
     .pricing-section {
       padding: 140px 0;
@@ -1143,6 +1377,24 @@
         gap: 40px;
       }
 
+      .blog-teaser-section { padding: 100px 0; }
+      .blog-teaser-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 480px;
+      }
+      .blog-teaser-title { font-size: 18px; }
+
+      .audience-section { padding: 100px 0; }
+      .audience-list li { font-size: 17px; }
+
+      .comparison-section { padding: 100px 0; }
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 480px;
+      }
+
       .feature-section { padding: 100px 0; }
     }
 
@@ -1180,6 +1432,7 @@
   <header class="site-header">
     <img src="assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo">
     <div class="header-right">
+      <a href="blog/" class="header-link">Blog</a>
       <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -1231,6 +1484,21 @@
     </div>
   </section>
 
+  <!-- ── WHO THIS IS FOR ── -->
+  <section class="audience-section">
+    <div class="audience-header reveal">
+      <p class="eyebrow">Who This Is For</p>
+      <h2 class="section-title">If any of this sounds like you&hellip;</h2>
+    </div>
+    <ul class="audience-list reveal">
+      <li>You&rsquo;ve Googled &ldquo;pizza dough hydration&rdquo; more than once.</li>
+      <li>You own &mdash; or have seriously considered &mdash; a baking steel.</li>
+      <li>You have strong opinions about 00 flour.</li>
+      <li>You&rsquo;ve pulled off a great pizza, then never figured out how to make it again.</li>
+    </ul>
+    <p class="audience-sub reveal">You&rsquo;re in the right place. If none of that lands, this isn&rsquo;t your app &mdash; and that&rsquo;s fine.</p>
+  </section>
+
   <!-- ── PHOTO BREAK: CHEESE PULL ── -->
   <div class="photo-break">
     <img src="Screenshots/cheese-pull.jpg" alt="Fresh pizza with cheese pull" loading="lazy">
@@ -1254,43 +1522,7 @@
     </div>
   </section>
 
-  <!-- ── FEATURE 2: JOURNAL ── -->
-  <section class="feature-section">
-    <div class="feature-row reverse reveal">
-      <div class="feature-text">
-        <p class="eyebrow">Bake Journal</p>
-        <h2>Your bake log, but one<br>that actually works.</h2>
-        <p>
-          You've tried Notes. You've tried spreadsheets. You've tried photos with captions. The Bake Journal captures your full dough snapshot — hydration, salt %, oven temp, bake time, fermentation schedule — with photos and star ratings. Compare bakes side-by-side and find what actually changed.
-        </p>
-      </div>
-      <div class="feature-device">
-        <div class="phone-mockup tilt-right">
-          <img src="Screenshots/journal.jpg" alt="Bake journal entry with 5-star rating">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FEATURE 3: TIPS ── -->
-  <section class="feature-section">
-    <div class="feature-row reveal">
-      <div class="feature-text">
-        <p class="eyebrow">Knowledge Hub</p>
-        <h2>Deep dives, not hot takes.</h2>
-        <p>
-          Flour protein content. DDT calculations. Maillard vs. caramelization on different deck temps. The Knowledge Hub goes deep on the stuff that actually moves the needle — organized by topic, not buried in a comment thread you bookmarked six months ago and can't find.
-        </p>
-      </div>
-      <div class="feature-device">
-        <div class="phone-mockup">
-          <img src="Screenshots/tips.jpg" alt="Baking tips with skill level slider">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FEATURE 4: SCHEDULER ── -->
+  <!-- ── FEATURE 2: SCHEDULER ── -->
   <section class="feature-section">
     <div class="feature-row reverse reveal">
       <div class="feature-text">
@@ -1304,6 +1536,42 @@
       <div class="feature-device">
         <div class="phone-mockup tilt-right">
           <img src="Screenshots/scheduler.jpg" alt="Smart Dough Scheduler with step-by-step timeline">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURE 3: JOURNAL ── -->
+  <section class="feature-section">
+    <div class="feature-row reveal">
+      <div class="feature-text">
+        <p class="eyebrow">Bake Journal</p>
+        <h2>Your bake log, but one<br>that actually works.</h2>
+        <p>
+          You've tried Notes. You've tried spreadsheets. You've tried photos with captions. The Bake Journal captures your full dough snapshot — hydration, salt %, oven temp, bake time, fermentation schedule — with photos and star ratings. Compare bakes side-by-side and find what actually changed.
+        </p>
+      </div>
+      <div class="feature-device">
+        <div class="phone-mockup">
+          <img src="Screenshots/journal.jpg" alt="Bake journal entry with 5-star rating">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURE 4: KNOWLEDGE HUB ── -->
+  <section class="feature-section">
+    <div class="feature-row reverse reveal">
+      <div class="feature-text">
+        <p class="eyebrow">Knowledge Hub</p>
+        <h2>Flour science. Fermentation math. No bookmarked threads.</h2>
+        <p>
+          Flour protein content. DDT calculations. Maillard vs. caramelization on different deck temps. The Knowledge Hub goes deep on the stuff that actually moves the needle — organized by topic, not buried in a comment thread you bookmarked six months ago and can't find.
+        </p>
+      </div>
+      <div class="feature-device">
+        <div class="phone-mockup tilt-right">
+          <img src="Screenshots/tips.jpg" alt="Baking tips with skill level slider">
         </div>
       </div>
     </div>
@@ -1365,6 +1633,41 @@
     <p class="styles-note reveal">Plus Detroit, Thin &amp; Crispy, Pan, St. Louis, New Haven, and Cast Iron.</p>
   </section>
 
+  <!-- ── BLOG TEASER ── -->
+  <section class="blog-teaser-section">
+    <div class="blog-teaser-header reveal">
+      <p class="eyebrow">From the Blog</p>
+      <h2 class="section-title">Style guides, dough science, and opinions you didn&rsquo;t ask for.</h2>
+    </div>
+    <div class="blog-teaser-grid reveal">
+      <a href="blog/deep-dish-vs-tavern-style.html" class="blog-teaser-card">
+        <img src="assets/blog/chicago-tavern-style-pizza.webp" alt="Chicago tavern-style pizza" class="blog-teaser-image" loading="lazy">
+        <div class="blog-teaser-body">
+          <p class="blog-teaser-meta"><span class="blog-teaser-tag">Opinion</span>May 8, 2026</p>
+          <h3 class="blog-teaser-title">Deep Dish Is Tourist Pizza. Chicago&rsquo;s Real Pizza Is Thin.</h3>
+          <p class="blog-teaser-excerpt">This is going to make some people angry. Good. Why locals eat tavern-style and leave the casserole pizza to the visitors.</p>
+        </div>
+      </a>
+      <a href="blog/desired-dough-temperature.html" class="blog-teaser-card">
+        <img src="assets/blog/desired-dough-temperature.webp" alt="Thermometer reading the temperature of pizza dough" class="blog-teaser-image" loading="lazy">
+        <div class="blog-teaser-body">
+          <p class="blog-teaser-meta"><span class="blog-teaser-tag">Advanced</span>Apr 28, 2026</p>
+          <h3 class="blog-teaser-title">Desired Dough Temperature: The Variable That Changes Everything</h3>
+          <p class="blog-teaser-excerpt">If your bakes are inconsistent and you&rsquo;ve already nailed your hydration, this is almost certainly what&rsquo;s missing.</p>
+        </div>
+      </a>
+      <a href="blog/bakers-percentages-pizza.html" class="blog-teaser-card">
+        <img src="assets/blog/bakers-percentages-pizza.webp" alt="Baker measuring flour with a scale" class="blog-teaser-image" loading="lazy">
+        <div class="blog-teaser-body">
+          <p class="blog-teaser-meta"><span class="blog-teaser-tag">Advanced</span>Apr 24, 2026</p>
+          <h3 class="blog-teaser-title">Baker&rsquo;s Percentages for Pizza: How to Scale Any Recipe Perfectly</h3>
+          <p class="blog-teaser-excerpt">Most home bakers eventually hit a ceiling. Baker&rsquo;s percentages are how you break through &mdash; the same system every pro uses.</p>
+        </div>
+      </a>
+    </div>
+    <p class="blog-teaser-cta reveal"><a href="blog/">Read everything on the blog &rarr;</a></p>
+  </section>
+
   <!-- ── PULL QUOTE ── -->
   <div class="pull-quote reveal">
     <blockquote>&ldquo;This is the tool I was building in Google Sheets. Except it actually works and I don't have to maintain it.&rdquo;</blockquote>
@@ -1380,18 +1683,18 @@
     <div class="testimonials-grid reveal">
       <div class="testimonial-card">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>&ldquo;Two weeks ago I was ordering Domino's. Last night I made Neapolitan that my wife said was better than the place we went in Naples. The scheduler alone is worth 10x the price.&rdquo;</p>
-        <div class="testimonial-author">Mike R. &middot; Complete Beginner</div>
+        <p>&ldquo;Been chasing a decent NY-style at home for about a year. My numbers were always off — too wet one week, too stiff the next. Locked in my flour and oven setup, ran a 48-hour cold ferment, and the last two bakes have been the best I've pulled out of a home oven. Only note: I wish I could log my steel temp alongside each bake.&rdquo;</p>
+        <div class="testimonial-author">Marcus &middot; Brooklyn</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>&ldquo;I used to waste entire batches guessing hydration. First bake with the calculator — perfect dough, zero waste. I've made 30+ pizzas since and haven't had a single bad one.&rdquo;</p>
-        <div class="testimonial-author">Sarah K. &middot; Home Baker for 6 Months</div>
+        <p>&ldquo;I'm the guy who ends up making dinner on Sundays, not a baker. My kid went through a pizza phase and I got tired of the frozen stuff. The timing is what I actually use — I don't have to think about when to start the dough, it just tells me. First couple were rough, but I think I've got the hang of it now.&rdquo;</p>
+        <div class="testimonial-author">J. Alvarez &middot; dad of two</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>&ldquo;The journal showed me I was over-proofing by 2 hours every time. Fixed it, and now my crust is consistently the best thing at every party. Friends think I took a class.&rdquo;</p>
-        <div class="testimonial-author">Dave T. &middot; Weekend Baker</div>
+        <p>&ldquo;I've been deep in the Forkish rabbit hole for a while and figured an app wasn't going to teach me much. Mostly I was right — but I use it as a logbook now, and looking back at what I did two weeks ago is honestly where most of my recent improvement has come from. The style passport is silly and I'm somehow still trying to fill it in.&rdquo;</p>
+        <div class="testimonial-author">Priya &middot; Ooni owner, year two</div>
       </div>
     </div>
   </section>
@@ -1400,16 +1703,47 @@
   <section class="values-section">
     <div class="values-grid reveal">
       <div class="value-item">
-        <h3>Works Without Wi-Fi</h3>
-        <p>No account. No cloud. No tracking. Use it in your kitchen, at a cabin, or anywhere — your data never leaves your device.</p>
+        <h3>Designed for floury hands.</h3>
+        <p>No login screens. No cloud sync. No Wi-Fi required. Use it in a kitchen that smells like flour, or on a cabin weekend with no signal — it all still works. Your bakes stay on your device, always.</p>
       </div>
       <div class="value-item">
-        <h3>Everything for $4.99</h3>
-        <p>Calculator, scheduler, journal, analytics, and knowledge base — all included.</p>
+        <h3>Pay once. Keep it forever.</h3>
+        <p>No subscription. No annual renewal. No freemium tier hiding the real features behind an upgrade. $4.99 unlocks everything — today and every future update.</p>
       </div>
       <div class="value-item">
-        <h3>Replaces 5 Apps and a Cookbook</h3>
-        <p>Calculator, scheduler, journal, analytics, knowledge base, and troubleshooting. Other apps do one of these. The Pie Lab does all of them.</p>
+        <h3>One app, not a tab graveyard.</h3>
+        <p>Calculator, scheduler, journal, knowledge reference, troubleshooting tree — the stack you'd normally cobble together from five apps, a cookbook, and a dozen Reddit tabs. All in one place. All offline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON ── -->
+  <section class="comparison-section">
+    <div class="comparison-header reveal">
+      <p class="eyebrow">The Alternative</p>
+      <h2 class="section-title">Winging it vs. dialing it in.</h2>
+      <p class="section-sub">The question isn&rsquo;t whether you can make good pizza without this. It&rsquo;s whether you can make it twice.</p>
+    </div>
+    <div class="comparison-grid reveal">
+      <div class="comparison-col winging">
+        <h3>Winging It</h3>
+        <ul>
+          <li>&ldquo;65%? 70%? I&rsquo;ll eyeball it.&rdquo;</li>
+          <li>Recipes copied from five YouTube videos.</li>
+          <li>&ldquo;It was great last time &mdash; or did I get lucky?&rdquo;</li>
+          <li>&ldquo;Dough isn&rsquo;t ready. Push dinner back.&rdquo;</li>
+          <li>Progress measured in months.</li>
+        </ul>
+      </div>
+      <div class="comparison-col dialed">
+        <h3>With The Pie Lab</h3>
+        <ul>
+          <li>Exact weights. By style. Down to the gram.</li>
+          <li>One calculator. Thirteen styles.</li>
+          <li>Every bake logged. Side-by-side.</li>
+          <li>A schedule reverse-engineered from dinner.</li>
+          <li>Progress measured in bakes.</li>
+        </ul>
       </div>
     </div>
   </section>
