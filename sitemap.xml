@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pielab.app/</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pielab.app/privacy.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://pielab.app/terms.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://pielab.app/refund.html</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
@@ -27,12 +27,72 @@
   </url>
   <url>
     <loc>https://pielab.app/blog/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/deep-dish-vs-tavern-style.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/desired-dough-temperature.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/bakers-percentages-pizza.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/ohio-valley-betos-pizza.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/st-louis-style-pizza.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pielab.app/blog/chicago-tavern-style-pizza.html</loc>
     <lastmod>2026-03-31</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/first-homemade-pizza.html</loc>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/new-haven-apizza.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/sicilian-pizza-at-home.html</loc>
+    <lastmod>2026-03-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/grandma-pizza.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/new-york-style-pizza.html</loc>
+    <lastmod>2026-03-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/detroit-style-pizza.html</loc>
+    <lastmod>2026-03-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/neapolitan-pizza-at-home.html</loc>
+    <lastmod>2026-03-07</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

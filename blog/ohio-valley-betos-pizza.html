@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohio Valley Pizza: The One Where the Cheese Goes On After the Oven — The Pie Lab</title>
+  <meta name="description" content="Hot crust, cold provolone, square cuts. A regional Pittsburgh and Ohio River Valley style anchored by Beto's on Banksville Road since 1953. Why people love it, why people hate it, and how to make it at home.">
+  <link rel="canonical" href="https://pielab.app/blog/ohio-valley-betos-pizza.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/favicon-32.svg">
+  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0c0a" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Ohio Valley Pizza: The One Where the Cheese Goes On After the Oven — The Pie Lab">
+  <meta property="og:description" content="Hot crust, cold provolone, square cuts. A regional Pittsburgh and Ohio River Valley style anchored by Beto's on Banksville Road since 1953.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pielab.app/blog/ohio-valley-betos-pizza.html">
+  <meta property="og:image" content="https://pielab.app/assets/blog/ohio-valley-betos-pizza.webp">
+  <meta property="article:published_time" content="2026-04-11">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ohio Valley Pizza: The One Where the Cheese Goes On After the Oven — The Pie Lab">
+  <meta name="twitter:description" content="Hot crust, cold provolone, square cuts. A regional Pittsburgh and Ohio River Valley style anchored by Beto's on Banksville Road since 1953.">
+  <meta name="twitter:image" content="https://pielab.app/assets/blog/ohio-valley-betos-pizza.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #faf8f4;
+      --bg-alt: #f2efe9;
+      --card: #ffffff;
+      --primary: #c0542e;
+      --primary-dark: #a8442a;
+      --accent: #c0542e;
+      --text: #2a2520;
+      --text-muted: #706b63;
+      --white: #1a1714;
+      --border: #ddd8d0;
+      --shadow: 0 2px 16px rgba(0,0,0,0.06);
+      --header-bg: rgba(250, 248, 244, 0.92);
+      --font-display: 'Source Serif 4', 'Georgia', serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'Roboto Mono', 'Menlo', monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0e0c0a; --bg-alt: #141210; --card: #1a1816;
+        --primary: #d4744a; --primary-dark: #e08a60; --accent: #d4744a;
+        --text: #d5cec5; --text-muted: #847a70; --white: #ede6dc;
+        --border: #2a2520; --shadow: 0 2px 16px rgba(0,0,0,0.25);
+        --header-bg: rgba(14, 12, 10, 0.92);
+      }
+    }
+
+    [data-theme="dark"] {
+      --bg: #0e0c0a; --bg-alt: #141210; --card: #1a1816;
+      --primary: #d4744a; --primary-dark: #e08a60; --accent: #d4744a;
+      --text: #d5cec5; --text-muted: #847a70; --white: #ede6dc;
+      --border: #2a2520; --shadow: 0 2px 16px rgba(0,0,0,0.25);
+      --header-bg: rgba(14, 12, 10, 0.92);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body); background: var(--bg);
+      color: var(--text); line-height: 1.75; font-size: 17px;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 40px; background: var(--header-bg);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .site-header .logo { height: 28px; width: auto; }
+    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-header .logo { filter: none; } }
+    [data-theme="dark"] .site-header .logo { filter: none; }
+
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .header-link {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .header-link:hover { color: var(--accent); text-decoration: none; }
+
+    .theme-toggle {
+      background: none; border: 1px solid var(--border); border-radius: 4px;
+      padding: 8px; cursor: pointer; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: color 200ms ease, border-color 200ms ease; line-height: 1;
+    }
+    .theme-toggle:hover { color: var(--white); border-color: var(--text-muted); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .icon-moon { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
+    }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    .header-cta {
+      padding: 10px 28px; background: var(--primary); color: #fff;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      border: none; border-radius: 0; cursor: pointer;
+      transition: background 200ms ease; text-decoration: none;
+    }
+    .header-cta:hover { background: var(--primary-dark); color: #fff; text-decoration: none; }
+
+    /* ── ARTICLE LAYOUT ── */
+    .article-header {
+      max-width: 760px; margin: 0 auto;
+      padding: 160px 40px 56px; text-align: center;
+    }
+    .article-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+      color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 40px; transition: color 200ms ease; text-decoration: none;
+    }
+    .article-back:hover { color: var(--primary); text-decoration: none; }
+    .article-back svg { width: 12px; height: 12px; }
+
+    .article-meta {
+      display: flex; align-items: center; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+      font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+      letter-spacing: 0.5px; margin-bottom: 24px; text-transform: uppercase;
+    }
+    .article-tag {
+      padding: 4px 12px;
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      color: var(--accent); font-weight: 500; font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .article-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 56px);
+      font-weight: 700; color: var(--white);
+      line-height: 1.08; letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .article-subtitle {
+      font-size: 19px; color: var(--text-muted);
+      line-height: 1.7; max-width: 600px; margin: 0 auto;
+    }
+
+    /* ── HERO IMAGE ── */
+    .article-hero {
+      max-width: 1000px; margin: 0 auto 72px;
+      padding: 0 40px;
+    }
+    .article-hero img {
+      width: 100%; border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-body {
+      max-width: 700px; margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 32px);
+      font-weight: 700; color: var(--white);
+      letter-spacing: -0.01em; line-height: 1.2;
+      margin: 64px 0 24px;
+    }
+    .article-body h3 {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 700;
+      color: var(--white); line-height: 1.25;
+      margin: 44px 0 16px;
+    }
+    .article-body p {
+      margin-bottom: 24px; font-size: 17px;
+      line-height: 1.8; color: var(--text);
+    }
+    .article-body strong { color: var(--white); font-weight: 600; }
+    .article-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 4px 0 4px 28px; margin: 36px 0;
+      font-family: var(--font-display); font-style: italic;
+      color: var(--text-muted); font-size: 20px; line-height: 1.6;
+    }
+    .article-body hr {
+      border: none; border-top: 1px solid var(--border);
+      margin: 56px 0;
+    }
+    .article-body ul, .article-body ol {
+      margin: 0 0 24px 24px; font-size: 17px; line-height: 1.8;
+      color: var(--text);
+    }
+    .article-body li { margin-bottom: 10px; }
+
+    /* ── ARTICLE CTA ── */
+    .article-cta {
+      max-width: 700px; margin: 0 auto;
+      padding: 0 40px 120px; text-align: center;
+    }
+    .article-cta-card {
+      background: var(--card); border: 1px solid var(--border);
+      padding: 56px 48px; box-shadow: var(--shadow);
+    }
+    .article-cta-card h3 {
+      font-family: var(--font-display); font-size: 28px;
+      font-weight: 700; color: var(--white);
+      letter-spacing: -0.01em; margin-bottom: 16px;
+    }
+    .article-cta-card p {
+      font-size: 16px; color: var(--text-muted);
+      line-height: 1.7; margin-bottom: 32px;
+    }
+    .article-cta-btn {
+      display: inline-block; padding: 14px 40px;
+      background: var(--primary); color: #fff;
+      font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      text-decoration: none; transition: background 200ms ease;
+    }
+    .article-cta-btn:hover {
+      background: var(--primary-dark); color: #fff; text-decoration: none;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 56px 40px 48px; text-align: center;
+      background: var(--bg-alt);
+    }
+    .footer-links {
+      display: flex; gap: 32px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 24px;
+    }
+    .footer-links a {
+      color: var(--text-muted); font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      transition: color 200ms ease; text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--accent); text-decoration: none; }
+    .footer-copy {
+      color: var(--text-muted); font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.5px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .article-header { padding: 130px 24px 40px; }
+      .article-hero { padding: 0 24px; margin-bottom: 56px; }
+      .article-body { padding: 0 24px 80px; }
+      .article-cta { padding: 0 24px 100px; }
+      .article-cta-card { padding: 40px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .site-header { padding: 14px 20px; }
+      .site-header .logo { height: 24px; }
+      .header-cta { padding: 8px 20px; font-size: 11px; }
+      .header-link { font-size: 11px; }
+      .article-header { padding: 120px 20px 32px; }
+      .article-hero { padding: 0 20px; }
+      .article-body { padding: 0 20px 80px; }
+      .article-cta { padding: 0 20px 100px; }
+    }
+  </style>
+  <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="site-header">
+    <a href="../index.html"><img src="../assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo"></a>
+    <div class="header-right">
+      <a href="./" class="header-link">Blog</a>
+      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="../index.html#download" class="header-cta">Try Free 14 Days</a>
+    </div>
+  </header>
+
+  <!-- ── ARTICLE HEADER ── -->
+  <header class="article-header">
+    <a href="./" class="article-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Blog
+    </a>
+    <div class="article-meta">
+      <span class="article-tag">Style Guide</span>
+      <time datetime="2026-04-11">Apr 11, 2026</time>
+      <span>&middot; 5 min read</span>
+    </div>
+    <h1 class="article-title">Ohio Valley Pizza: The One Where the Cheese Goes On After the Oven</h1>
+    <p class="article-subtitle">Hot crust. Cold provolone. Square cuts. A regional style most of America has never heard of &mdash; and the people who grew up on it would defend with their lives.</p>
+  </header>
+
+  <!-- ── HERO IMAGE ── -->
+  <div class="article-hero">
+    <img src="../assets/blog/ohio-valley-betos-pizza.webp" alt="Ohio Valley-style pizza with cold shredded provolone over hot baked crust, cut into squares">
+  </div>
+
+  <!-- ── ARTICLE BODY ── -->
+  <article class="article-body">
+
+    <p>There is a pizza style that takes everything you know about pizza and puts the cheese on after the oven. Not before. Not in the middle. <em>After.</em></p>
+
+    <p>You bake the crust hot until the sauce is bubbling and the dough is set. You pull it out. Then you take fresh, cold, shredded provolone &mdash; not melted, not warmed, not pre-shredded from a bag &mdash; and you put it on top of the hot pizza. The cheese softens against the heat. It doesn&rsquo;t melt into a stretchy blanket. It sits there, slightly slumped, distinct strands still visible, the sharpness of the provolone unmuted by the cooking that would normally tame it.</p>
+
+    <p>This is Ohio Valley pizza. People love it or refuse to call it pizza. There is no middle ground.</p>
+
+    <hr>
+
+    <h2>Where It Comes From</h2>
+
+    <p>The Ohio River Valley &mdash; western Pennsylvania, eastern Ohio, the West Virginia panhandle &mdash; developed its own pizza tradition in the postwar mill-town years. It wasn&rsquo;t imported from Naples or New York. It wasn&rsquo;t self-conscious about authenticity. It was a working-class style built around what was available, what was affordable, and what the local Italian-American families preferred to make.</p>
+
+    <p>The defining trait &mdash; cold cheese on hot pizza &mdash; is most often credited to <strong>DiCarlo&rsquo;s Pizza in Steubenville, Ohio</strong>, which has been making it that way since 1945. The story is the same wherever you ask: the technique either started as an accident, a constraint, or a deliberate choice to keep the provolone&rsquo;s sharpness intact. Whatever the origin, it became canon. By the 1950s, pizzerias up and down the river valley were doing it the same way.</p>
+
+    <p>In Pittsburgh, the most stubbornly authentic version of the style lives at <strong>Beto&rsquo;s on Banksville Road</strong>, in the Beechview neighborhood. Beto&rsquo;s opened in 1953 and has been making pizza the same way ever since. They claim, plausibly, to be the oldest pizza restaurant in Pittsburgh. They sell their pizza by the cut rather than the pie. The provolone is shredded fresh every day. The tagline on their sign is &ldquo;Pizza Like No Other.&rdquo; They are not exaggerating.</p>
+
+    <p>For native Pittsburghers, Beto&rsquo;s sits in the same cultural slot as Primanti Brothers &mdash; an institution with its own way of doing things. Primanti puts french fries on a sandwich. Beto&rsquo;s puts cold cheese on a hot pizza. Neither one cares what people from out of town think.</p>
+
+    <hr>
+
+    <h2>What Defines the Style</h2>
+
+    <p><strong>The cold cheese.</strong> This is the whole thing. The crust bakes naked except for the sauce. The cheese goes on after. It doesn&rsquo;t get cooked &mdash; it gets <em>warmed</em> by the residual heat of the pizza beneath it. The provolone keeps its sharpness, its bite, its texture. It tastes like cheese. Most pizza cheese has been melted past the point where it tastes like anything in particular.</p>
+
+    <p><strong>The provolone.</strong> Specifically provolone, not mozzarella. Mozzarella cooks to a milder, more neutral flavor &mdash; that&rsquo;s why it&rsquo;s the default cheese on most American pizza. Provolone has a sharper, more aggressive personality, and the Ohio Valley method preserves it instead of muting it. Beto&rsquo;s shreds theirs daily. That matters more than it sounds: pre-shredded cheese is coated in anti-caking starches that change how it sits on the pizza.</p>
+
+    <p><strong>The crust.</strong> Thin, crisp, but not as thin as Chicago tavern style. Closer to a New York crust at the medium-thin end. Sturdy enough to hold its shape under the cold cheese, which is heavier than melted cheese sitting on a fresh-baked crust would be.</p>
+
+    <p><strong>The sauce.</strong> Applied generously and then baked. The sauce is what does most of the cooking on top &mdash; by the time the pizza comes out, the sauce is concentrated and bubbling, almost reduced. It&rsquo;s the warmest, most assertive layer of the finished pie because the cheese above it is cool by comparison.</p>
+
+    <p><strong>The cut.</strong> Squares. Always squares. Some places call them cuts. Beto&rsquo;s sells the pizza by the cut as the standard ordering ritual &mdash; you don&rsquo;t order &ldquo;a large pepperoni.&rdquo; You order how many cuts you want, what toppings on each, and they make it.</p>
+
+    <p><strong>The toppings.</strong> Usually simple. Mushrooms, green peppers, sausage, pepperoni. Nothing exotic. Cooked toppings like sausage go on before the bake. Cold toppings like cheese, mushrooms, and peppers go on <em>after</em>, the way the cheese does &mdash; that&rsquo;s the part most people don&rsquo;t expect on their first visit.</p>
+
+    <hr>
+
+    <h2>How Beto&rsquo;s &ldquo;Cuts&rdquo; Actually Work</h2>
+
+    <p>If you&rsquo;ve never ordered at a place that sells pizza by the cut, the system is unfamiliar enough that it&rsquo;s worth explaining before you walk in.</p>
+
+    <p>A Beto&rsquo;s &ldquo;cut&rdquo; is roughly a four-inch square. The pizza tray is large &mdash; <strong>twenty-eight cuts to a full tray</strong> &mdash; and you order however many cuts you want, with whatever combinations you want. Each cut is prepared individually as you order. So a group of four people might order eight cuts plain, four with sausage and mushroom, and four with pepperoni and green pepper, and the kitchen makes them as separate small pizzas to your spec.</p>
+
+    <p>Pricing is by the cut, with each topping adding a small amount on top. <strong>A cut with three toppings runs around three dollars</strong>, which makes Beto&rsquo;s one of the better pizza values in the city. It also means you can experiment liberally &mdash; if you want to know how cold cheese pairs with sausage versus how it pairs with mushroom, you can find out for under ten dollars in a single sitting. Most people order more cuts than they think they need, then realize halfway through that <strong>two cuts is a serious meal</strong> and they&rsquo;re going to be taking the rest home.</p>
+
+    <p>This system &mdash; cuts instead of slices, individual preparation per order, pricing per cut &mdash; is part of why Beto&rsquo;s has the regulars it does. You can come in alone and order three cuts. You can come in with eight people and turn the experience into a tasting flight. You can&rsquo;t do either of those things at most pizzerias, where the unit of purchase is a whole pie and the unit of consumption is a triangular slice.</p>
+
+    <hr>
+
+    <h2>Why People Either Love It or Refuse To Call It Pizza</h2>
+
+    <p>If you grew up on Ohio Valley pizza, the cold cheese is the thing you miss when you move away. You can get pizza anywhere. You can&rsquo;t get this anywhere. The combination of the bubbling-hot sauce underneath and the cool, sharp, distinct provolone on top is something the rest of American pizza simply doesn&rsquo;t offer. People who grew up with it taste a regular pizza and feel like something is missing.</p>
+
+    <p>If you didn&rsquo;t grow up on it, the first bite is confusing. The cheese is cold. The sauce is hot. The textures don&rsquo;t agree with each other. Your brain runs the comparison against every pizza you&rsquo;ve ever had and comes back with &ldquo;this is wrong.&rdquo; A lot of first-timers stop there. The ones who give it a second visit usually understand it by the third.</p>
+
+    <blockquote>Ohio Valley pizza is the only style that&rsquo;s polarizing because of its construction, not its ingredients. Everything on it is normal. Just put together in an order nobody else uses.</blockquote>
+
+    <p>This is why the style hasn&rsquo;t spread the way Detroit or New Haven has. Detroit converted the country once food media discovered it because the appeal is immediate &mdash; thick crust, lacy cheese edge, easy to love on first bite. Ohio Valley asks more of the eater. You have to be willing to sit with something unfamiliar long enough to figure out why people who eat it weekly would never trade it.</p>
+
+    <hr>
+
+    <h2>Making It At Home</h2>
+
+    <p>Ohio Valley is one of the easier regional styles to replicate at home, because the trick is in the assembly, not the equipment. You don&rsquo;t need a 900&deg;F oven. You don&rsquo;t need a coal-fired hearth. You need a baking steel or stone, a hot oven, and the willpower to wait until the pizza is out of the oven before you put the cheese on.</p>
+
+    <p>The mechanical process:</p>
+
+    <ol>
+      <li><strong>Make a medium-thin dough.</strong> 60-63% hydration, 24-48 hour cold ferment for flavor. This is not a high-hydration dough &mdash; the crust needs to support the weight of cold cheese without flopping.</li>
+      <li><strong>Stretch and top with sauce only</strong> &mdash; tomato sauce, cooked or uncooked, applied generously. Then add any cooked toppings (sausage, pepperoni, mushrooms, peppers).</li>
+      <li><strong>Bake at maximum oven temp on a preheated steel</strong> &mdash; 525&deg;F or higher &mdash; until the crust is set, the bottom is browned, and the sauce is bubbling and reduced. Six to eight minutes for most home ovens.</li>
+      <li><strong>Pull the pizza out.</strong> Don&rsquo;t add cheese yet. Let it rest about thirty seconds &mdash; you want the surface temperature to drop just enough that the cheese softens but doesn&rsquo;t fully melt.</li>
+      <li><strong>Add freshly shredded provolone</strong> &mdash; an even, generous layer. Use a block of real provolone and shred it yourself. Pre-shredded won&rsquo;t do it.</li>
+      <li><strong>Cut into squares</strong> and serve immediately. The cheese should be soft but not melted, the sauce should still be hot underneath, and the contrast is the entire point.</li>
+    </ol>
+
+    <hr>
+
+    <h2>The Variables That Matter</h2>
+
+    <p><strong>Provolone quality.</strong> This is non-negotiable. Buy a block of real provolone &mdash; not pre-shredded, not provolone-mozzarella blend. A sharp aged provolone is closer to the Ohio Valley standard than a young mild one. Shred it yourself, ideally just before baking.</p>
+
+    <p><strong>Sauce-to-cheese balance.</strong> The sauce is doing more flavor work in this style than in any other. Use a good crushed tomato (San Marzano or California equivalent), a pinch of salt, a tiny amount of olive oil, and nothing else. No sugar. No herbs in the sauce itself &mdash; oregano goes on top after the cheese, if at all.</p>
+
+    <p><strong>Bake intensity.</strong> The crust bakes without cheese, which means the sauce gets more direct heat than it would on a normal pizza. You want it concentrated and bubbling, almost jammy at the edges. If your sauce is still loose when the crust is done, your bake wasn&rsquo;t hot enough.</p>
+
+    <p><strong>The thirty-second rest.</strong> If you put the cheese on a screaming-hot pizza straight from the oven, it melts. If you wait too long, the pizza cools and the contrast disappears. Thirty seconds is the sweet spot for most home setups. Adjust based on how your pizza behaves &mdash; you want softened, not molten, and you want the sauce still actively hot.</p>
+
+    <p><strong>Don&rsquo;t apologize for it.</strong> The most common mistake home bakers make with this style is hedging &mdash; partially melting the cheese on top under the broiler, splitting the cheese half-and-half hot and cold, &ldquo;just to be safe.&rdquo; Don&rsquo;t. The cold cheese is the entire point. Commit to it.</p>
+
+    <hr>
+
+    <h2>Tracking Your Ohio Valley Bakes</h2>
+
+    <p>Ohio Valley sits in an unusual spot for tracking. The dough variables are conventional &mdash; hydration, ferment time, oven temp. But the assembly variables are unique to the style: how long you rest the pizza before adding cheese, how much cheese you put on, how thick the sauce reduces. These are the things that move from a competent attempt to a version that tastes like the real thing.</p>
+
+    <p>Write them down. Photograph the result. Try the rest at twenty seconds next time, then forty seconds, and see which gives you the better contrast. The style rewards small experiments more than most regional pizzas because the variables you&rsquo;re tuning aren&rsquo;t the ones every other style optimizes.</p>
+
+    <p>The Pie Lab&rsquo;s dough calculator handles the conventional side &mdash; hydration, salt, yeast, ball weight &mdash; in exact grams. The journal lets you log the assembly notes that matter for this style specifically: cheese rest time, sauce reduction, cheese amount. Your tenth Ohio Valley bake will be measurably better than your first if you&rsquo;re tracking. Without tracking, the tenth one is a coin flip.</p>
+
+    <hr>
+
+    <h2>If You&rsquo;re Ever in Pittsburgh</h2>
+
+    <p>Go to Beto&rsquo;s on Banksville Road in Beechview. Order four cuts to start &mdash; two with whatever sounds good and two plain so you taste what the cold provolone is doing on its own. Sit with the first bite for a second before you decide what you think. The cold cheese is supposed to be cold. The hot sauce is supposed to be hot. The point is the contrast, and the point of the style is that it&rsquo;s nothing like anywhere else.</p>
+
+    <p>You&rsquo;ll know within three cuts whether you&rsquo;re an Ohio Valley person or not. Most people aren&rsquo;t. The ones who are will be talking about Beto&rsquo;s for the rest of their lives.</p>
+
+  </article>
+
+  <!-- ── CTA CARD ── -->
+  <div class="article-cta">
+    <div class="article-cta-card">
+      <h3>Stop guessing. Start building a record.</h3>
+      <p>Style Guide preset included. Dough calculator, smart scheduler, bake journal, and 200+ expert tips. $4.99. No account, no internet required.</p>
+      <a href="../index.html#download" class="article-cta-btn">Try Free 14 Days</a>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <nav class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="./">Blog</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../refund.html">Refund Policy</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 The Pie Lab. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('themeToggle');
+      toggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var next = isDark ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
