@@ -46,7 +46,7 @@ blog/
 
 - **Domain:** pielab.app (via CNAME for GitHub Pages)
 - **Contact:** hello@pielab.app
-- **Pricing:** $4.99 one-time purchase, 14-day free trial
+- **Pricing:** $9.99 one-time purchase, 14-day free trial
 - **App Store link:** Live at `https://apps.apple.com/us/app/the-pie-lab/id6761226323`
 - **Google Play:** Coming soon — badge shown muted with `coming-soon` class; swap `<span>` back to `<a>` with real URL when ready
 - **SEO:** Structured data (JSON-LD) for Organization, SoftwareApplication, and FAQPage
