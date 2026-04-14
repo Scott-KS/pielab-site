@@ -21,45 +21,10 @@
   <meta name="twitter:image" content="https://pielab.app/assets/blog/ohio-valley-betos-pizza.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Libre+Franklin:wght@200;300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #faf8f4;
-      --bg-alt: #f2efe9;
-      --card: #ffffff;
-      --primary: #c0542e;
-      --primary-dark: #a8442a;
-      --accent: #c0542e;
-      --text: #2a2520;
-      --text-muted: #706b63;
-      --white: #1a1714;
-      --border: #ddd8d0;
-      --shadow: 0 2px 16px rgba(0,0,0,0.06);
-      --header-bg: rgba(250, 248, 244, 0.92);
-      --font-display: 'Source Serif 4', 'Georgia', serif;
-      --font-body: 'Inter', system-ui, sans-serif;
-      --font-mono: 'Roboto Mono', 'Menlo', monospace;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0e0c0a; --bg-alt: #141210; --card: #1a1816;
-        --primary: #d4744a; --primary-dark: #e08a60; --accent: #d4744a;
-        --text: #d5cec5; --text-muted: #847a70; --white: #ede6dc;
-        --border: #2a2520; --shadow: 0 2px 16px rgba(0,0,0,0.25);
-        --header-bg: rgba(14, 12, 10, 0.92);
-      }
-    }
-
-    [data-theme="dark"] {
-      --bg: #0e0c0a; --bg-alt: #141210; --card: #1a1816;
-      --primary: #d4744a; --primary-dark: #e08a60; --accent: #d4744a;
-      --text: #d5cec5; --text-muted: #847a70; --white: #ede6dc;
-      --border: #2a2520; --shadow: 0 2px 16px rgba(0,0,0,0.25);
-      --header-bg: rgba(14, 12, 10, 0.92);
-    }
 
     html { scroll-behavior: smooth; }
 
@@ -287,7 +252,7 @@
 
   <!-- ── HEADER ── -->
   <header class="site-header">
-    <a href="../index.html"><img src="../assets/logos/logo-horizontal-light.svg" alt="The Pie Lab" class="logo"></a>
+    <a href="/" class="nav-logo"><span class="nav-logo-wordmark logo">The Pie <span class="lab">Lab</span></span></a>
     <div class="header-right">
       <a href="./" class="header-link">Blog</a>
       <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">

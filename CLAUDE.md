@@ -7,8 +7,8 @@ Marketing/landing website for **The Pie Lab**, a pizza-making mobile app (iOS & 
 ## Tech Stack
 
 - **Pure HTML/CSS/JS** — no framework, no build tools, no package.json
-- Google Fonts: Playfair Display (serif headings) + Inter (body)
-- All styles are embedded in each HTML file's `<style>` block
+- **Google Fonts: Fraunces (display) + Libre Franklin (body/UI) + Space Mono (data)** — loaded via `styles.css`
+- **Shared `styles.css` at site root** holds the Ember Editorial design system (tokens, fonts, typography, wordmark). Every page links it via `<link rel="stylesheet" href="styles.css">` (or `../styles.css` for blog posts). Per-page `<style>` blocks still exist for page-specific components (hero sections, feature cards, pricing grids, etc.) and inherit tokens from styles.css.
 - Vanilla JS for interactions (IntersectionObserver, accordion, dark mode toggle)
 
 ## Site Structure
@@ -34,11 +34,20 @@ blog/
   *.html          — Individual blog posts (one file per post)
 ```
 
-## Design System
+## Design System — Ember Editorial
 
-- **Dark theme** with light mode support via `prefers-color-scheme`
-- Accent color: burnt orange / terracotta
-- Light theme color: `#f3ebe2`, dark theme color: `#0e0c0a`
+- **Dark-first.** Page bg `#0F0D0A` (`--clr-char` / `--bg`), card bg `#1A1410` (`--clr-coal` / `--card`). Light mode is explicit opt-in via `[data-theme="light"]` (mainly for print).
+- **Palette tokens** live in `styles.css` — both Ember names (`--clr-ember`, `--clr-crust`, `--clr-parchment`, `--clr-char`, `--clr-coal`, `--clr-ash`, `--clr-smoke`, `--clr-stone`) and legacy aliases (`--bg`, `--card`, `--primary`, `--accent`, `--text`, etc.) that map to Ember values. Per-page `<style>` blocks can reference either.
+- **Primary (CTAs, "Lab" wordmark):** Ember orange `#D4713A`
+- **Typography — strict three-font system:**
+  - **Fraunces** (`var(--font-display)`) italic for display headings and the wordmark
+  - **Libre Franklin** (`var(--font-body)`) weights 200–400 for body, nav, labels, buttons
+  - **Space Mono** (`var(--font-data)` / `var(--font-mono)`) for all numerical output
+  - Do not re-introduce Source Serif 4, Playfair Display, Inter, or Roboto Mono
+- **Wordmark:** nav and hero logos render as inline HTML (`<span class="nav-logo-wordmark">The Pie <span class="lab">Lab</span></span>`), not `<img>`
+- **No drop shadows on cards/modals** — use 1px `--clr-ash` borders instead
+- **No pill shapes** (`border-radius: 999px`) on buttons or badges — use `--radius-btn` (2px)
+- **No card radii above 8px** — use `--radius-card` (6px)
 - Mobile-first responsive design (breakpoints at 768px and 480px)
 - Phone mockup frames around app screenshots
 
@@ -59,8 +68,9 @@ Static site served directly via GitHub Pages. No build step required — push to
 
 ## When Editing
 
-- All pages share a similar CSS structure but styles are **not shared** — each HTML file has its own `<style>` block
-- When updating navigation, footer, or shared UI, update **all HTML files** (index, contact, privacy, terms, refund, blog/index, blog/_template, and any published posts)
+- **Design-system tokens, fonts, typography, wordmark, and reset live in `styles.css`** — the single source of truth. Add shared component rules there.
+- Per-page `<style>` blocks hold only page-specific components (hero sections unique to index, contact form, legal-page layouts, feature cards, pricing grids, etc.) and reference the tokens from styles.css.
+- When updating navigation, footer, or other shared UI that lives in HTML, update **all HTML files** (index, contact, privacy, terms, refund, blog/index, blog/_template, and any published posts). The wordmark nav logo markup is the same on every page.
 - Images use WebP format for performance; screenshots are JPG
 - The `pielab-site/` subdirectory is a legacy artifact — ignore it
 
