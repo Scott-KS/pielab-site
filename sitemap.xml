@@ -27,8 +27,13 @@
   </url>
   <url>
     <loc>https://pielab.app/blog/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pielab.app/blog/detroit-style-pizza.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pielab.app/blog/new-york-style-pizza.html</loc>
