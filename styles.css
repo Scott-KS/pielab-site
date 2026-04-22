@@ -90,7 +90,6 @@
   --accent:          #9A6830;
   --text:            #1A0E06;
   --text-muted:      #6A5040;
-  --white:           #1A0E06;
   --border:          #D8CBBA;
   --header-bg:       rgba(247, 240, 230, 0.94);
   color-scheme:      light;
@@ -218,7 +217,7 @@ p {
   font-size:      clamp(2.5rem, 6vw, 4.5rem);
   font-weight:    300;
   font-style:     italic;
-  color:          var(--text);
+  color:          var(--white);
   line-height:    1;
   letter-spacing: -1px;
   display:        inline-block;
