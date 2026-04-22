@@ -15,8 +15,8 @@
   <meta name="description" content="Most people who think they've had Sicilian pizza haven't had real Sicilian pizza. They've had a thick rectangular pizza from a chain that labels things Sicil...">
   <link rel="canonical" href="https://pielab.app/blog/sicilian-pizza-at-home.html">
   <link rel="icon" type="image/svg+xml" href="../assets/logos/favicon-32.svg">
-  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e0c0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F3EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F2428" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Sicilian Pizza: Thick, Focaccia-Style, and Nothing Like What Most People Think — The Pie Lab">
   <meta property="og:description" content="Most people who think they've had Sicilian pizza haven't had real Sicilian pizza. They've had a thick rectangular pizza from a chain that labels things Sicil...">
   <meta property="og:type" content="article">
@@ -54,9 +54,6 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .site-header .logo { height: 28px; width: auto; }
-    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-header .logo { filter: none; } }
-    [data-theme="dark"] .site-header .logo { filter: none; }
 
     .header-right { display: flex; align-items: center; gap: 16px; }
     .header-link {
@@ -66,24 +63,6 @@
       transition: color 200ms ease;
     }
     .header-link:hover { color: var(--accent); text-decoration: none; }
-
-    .theme-toggle {
-      background: none; border: 1px solid var(--border); border-radius: 4px;
-      padding: 8px; cursor: pointer; color: var(--text-muted);
-      display: flex; align-items: center; justify-content: center;
-      transition: color 200ms ease, border-color 200ms ease; line-height: 1;
-    }
-    .theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
-    .theme-toggle svg { width: 16px; height: 16px; }
-    .theme-toggle .icon-moon { display: none; }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
-      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
-    }
-    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
-    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
-    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
     .header-cta {
       padding: 10px 28px; background: var(--primary); color: #fff;
@@ -287,11 +266,10 @@
       .article-cta { padding: 0 20px 100px; }
     }
   </style>
-  <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
 </head>
 <body>
   <header class="site-header"><a href="/" class="nav-logo"><span class="nav-logo-wordmark logo">The Pie <span class="lab">Lab</span></span></a><div class="header-right"><a href="./" class="header-link">Blog</a>
-      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a href="../index.html#download" class="header-cta">Try Free 14 Days</a></div></header>
+<a href="../index.html#download" class="header-cta">Try Free 14 Days</a></div></header>
   <header class="article-header"><a href="./" class="article-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back to Blog</a><div class="article-meta"><span class="article-tag">Style Guide</span><time datetime="2026-03-21">Mar 21, 2026</time> &middot; 3 min read</div><h1 class="article-title">Sicilian Pizza: Thick, Focaccia-Style, and Nothing Like What Most People Think</h1><p class="article-subtitle">Most people who think they’ve had Sicilian pizza haven’t had real Sicilian pizza. They’ve had a thick rectangular pizza from a chain that labels things Sicil...</p></header>
   <div class="article-hero"><img src="../assets/blog/sicilian-pizza-at-home.webp" alt="Sicilian Pizza: Thick, Focaccia-Style, and Nothing Like What Most People Think"></div>
   <article class="article-body">
@@ -324,6 +302,6 @@
   </article>
   <div class="article-cta"><div class="article-cta-card"><h3>Stop guessing. Start building a record.</h3><p>Style Guide preset included. Dough calculator, smart scheduler, bake journal, and 200+ expert tips. $9.99. No account, no internet required.</p><a href="../index.html#download" class="article-cta-btn">Try Free for 14 Days</a></div></div>
   <footer class="site-footer"><nav class="footer-links"><a href="../index.html">Home</a><a href="./">Blog</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund.html">Refund Policy</a></nav><p class="footer-copy">&copy; 2026 The Pie Lab. All rights reserved.</p></footer>
-  <script>(function() { var toggle = document.getElementById('themeToggle'); toggle.addEventListener('click', function() { var current = document.documentElement.getAttribute('data-theme'); var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches); var next = isDark ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', next); localStorage.setItem('theme', next); }); })();</script>
+  <script></script>
 </body>
 </html>

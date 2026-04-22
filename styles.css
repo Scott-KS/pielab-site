@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════
-   THE PIE LAB — EMBER EDITORIAL DESIGN SYSTEM
+   THE PIE LAB — INGREDIENTS DESIGN SYSTEM
    Shared stylesheet for pielab.app (marketing site)
    Fonts: Fraunces (display) · Libre Franklin (body/UI) · Space Mono (data)
    Mirrors the app's design system so site + app share one language.
@@ -14,23 +14,20 @@
 }
 
 /* ══════════════════════════════════════════════════
-   DESIGN TOKENS
+   DESIGN TOKENS — Ingredients palette
    ══════════════════════════════════════════════════ */
 :root {
-  /* Core palette */
-  --clr-ember:       #D4713A;
-  --clr-crust:       #C4874A;
-  --clr-parchment:   #F5EDE0;
-
-  /* Dark surfaces */
-  --clr-char:        #0F0D0A;
-  --clr-coal:        #1A1410;
-  --clr-ash:         #2A1E14;
-
-  /* Text tones */
-  --clr-smoke:       #9A8A7A;
-  --clr-stone:       #5A4A3A;
-  --clr-flint:       #3A2A1A;
+  /* Core palette — Ingredients */
+  --clr-paprika:         #D8572C;  /* base action */
+  --clr-paprika-lift:    #E86B38;  /* dark-mode lifted CTA */
+  --clr-paprika-pressed: #C65828;  /* pressed state */
+  --clr-olive-ash:       #6C7A4F;  /* base badge */
+  --clr-olive-ash-lift:  #9CA686;  /* dark-mode lifted badge */
+  --clr-basil:           #5A9F92;  /* reserved status/confirm accent */
+  --clr-cream-flour:     #F7F3EC;  /* light bg / dark text */
+  --clr-stone-dough-lt:  #E7E1D8;  /* light card */
+  --clr-stone-dough-dk:  #2A3034;  /* dark card */
+  --clr-charcoal-oven:   #1F2428;  /* dark bg / light text */
 
   /* Semantic */
   --clr-success:     #50A070;
@@ -53,46 +50,45 @@
 
   --transition:      0.2s ease;
 
-  /* ── Legacy alias vars ──
-     Existing per-page <style> blocks reference these names. Aliasing
-     keeps them working while redirecting values to the Ember palette. */
-  --bg:              #0F0D0A;
-  --bg-alt:          #171210;
-  --card:            #1A1410;
-  --primary:         #D4713A;
-  --primary-dark:    #B85A28;
-  --accent:          #C4874A;
-  --text:            #F5EDE0;
-  --text-muted:      #9A8A7A;
-  --white:           #F5EDE0;
-  --border:          #2A1E14;
-  --header-bg:       rgba(15, 13, 10, 0.94);
+  /* ── Theme aliases (dark-first, Ingredients) ── */
+  --bg:              #1F2428;  /* Charcoal Oven */
+  --bg-alt:          #242A2E;
+  --card:            #2A3034;  /* Stone Dough (dark) */
+  --primary:         #E86B38;  /* Paprika lifted */
+  --primary-dark:    #C65828;  /* Paprika pressed */
+  --accent:          #9CA686;  /* Olive Ash lifted */
+  --text:            #F7F3EC;  /* Cream Flour */
+  --text-muted:      #9AA1A7;
+  --white:           #F7F3EC;
+  --border:          #3A4248;
+  --header-bg:       rgba(31, 36, 40, 0.94);
   --badge-bg:        transparent;
-  --badge-bg-hover:  rgba(245, 237, 224, 0.06);
-  --badge-border:    #F5EDE0;
-  --glow:            rgba(212, 113, 58, 0.06);
-  --phone-border:    rgba(245, 237, 224, 0.08);
+  --badge-bg-hover:  rgba(247, 243, 236, 0.06);
+  --badge-border:    #F7F3EC;
+  --glow:            rgba(232, 107, 56, 0.06);
+  --phone-border:    rgba(247, 243, 236, 0.08);
   --phone-shadow:    none;
-  --phone-ring:      rgba(245, 237, 224, 0.03);
+  --phone-ring:      rgba(247, 243, 236, 0.03);
   --noise-opacity:   0;
 
   color-scheme:      dark;
 }
 
-/* ── Light mode override (explicit opt-in) ── */
-[data-theme='light'] {
-  --clr-bg:          #F7F0E6;
-  --bg:              #F7F0E6;
-  --bg-alt:          #EDE3D6;
-  --card:            #EDE3D6;
-  --primary:         #B85A28;
-  --primary-dark:    #9A4820;
-  --accent:          #9A6830;
-  --text:            #1A0E06;
-  --text-muted:      #6A5040;
-  --border:          #D8CBBA;
-  --header-bg:       rgba(247, 240, 230, 0.94);
-  color-scheme:      light;
+/* ── Light mode (OS-forced / print only — toggle removed) ── */
+@media print {
+  :root {
+    --bg:              #F7F3EC;  /* Cream Flour */
+    --bg-alt:          #EDE8DE;
+    --card:            #E7E1D8;  /* Stone Dough (light) */
+    --primary:         #D8572C;  /* Paprika base */
+    --primary-dark:    #B0431D;
+    --accent:          #6C7A4F;  /* Olive Ash base */
+    --text:            #1F2428;  /* Charcoal Oven */
+    --text-muted:      #6E7378;
+    --border:          #D2CBBD;
+    --header-bg:       rgba(247, 243, 236, 0.94);
+    color-scheme:      light;
+  }
 }
 
 html { scroll-behavior: smooth; }
@@ -111,7 +107,7 @@ body {
 }
 
 *:focus-visible {
-  outline:        2px solid var(--clr-ember);
+  outline:        2px solid var(--clr-paprika-lift);
   outline-offset: 2px;
 }
 
@@ -154,7 +150,7 @@ p {
   font-size:      0.7rem;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color:          var(--clr-ember);
+  color:          var(--clr-paprika-lift);
 }
 
 /* Data — Space Mono for numbers */
@@ -162,7 +158,7 @@ p {
 .data-value {
   font-family:    var(--font-data);
   font-weight:    400;
-  color:          var(--clr-crust);
+  color:          var(--clr-olive-ash-lift);
   letter-spacing: 0.5px;
 }
 
@@ -171,7 +167,7 @@ p {
   font-style:     italic;
   font-weight:    300;
   font-size:      2.5rem;
-  color:          var(--clr-crust);
+  color:          var(--clr-olive-ash-lift);
   line-height:    1;
 }
 
@@ -180,7 +176,7 @@ p {
   font-size:      0.65rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color:          var(--clr-stone);
+  color:          var(--text-muted);
   margin-top:     3px;
 }
 
@@ -190,7 +186,7 @@ p {
   font-size:      0.7rem;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  color:          var(--clr-stone);
+  color:          var(--text-muted);
 }
 
 /* ══════════════════════════════════════════════════
@@ -207,7 +203,7 @@ p {
 
 .nav-logo-wordmark .lab,
 .hero-logo-wordmark .lab {
-  color:       var(--clr-ember);
+  color:       var(--clr-paprika-lift);
   font-style:  normal;
   font-weight: 500;
 }

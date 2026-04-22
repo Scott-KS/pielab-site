@@ -15,8 +15,8 @@
   <meta name="description" content="There is a small but passionate community of people who believe New Haven apizza is the best pizza in America. They're not wrong, but they're also almost imp...">
   <link rel="canonical" href="https://pielab.app/blog/new-haven-apizza.html">
   <link rel="icon" type="image/svg+xml" href="../assets/logos/favicon-32.svg">
-  <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e0c0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F3EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F2428" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="New Haven Apizza: The Most Underrated Regional Style in America — The Pie Lab">
   <meta property="og:description" content="There is a small but passionate community of people who believe New Haven apizza is the best pizza in America. They're not wrong, but they're also almost imp...">
   <meta property="og:type" content="article">
@@ -54,9 +54,6 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .site-header .logo { height: 28px; width: auto; }
-    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-header .logo { filter: none; } }
-    [data-theme="dark"] .site-header .logo { filter: none; }
 
     .header-right { display: flex; align-items: center; gap: 16px; }
     .header-link {
@@ -66,24 +63,6 @@
       transition: color 200ms ease;
     }
     .header-link:hover { color: var(--accent); text-decoration: none; }
-
-    .theme-toggle {
-      background: none; border: 1px solid var(--border); border-radius: 4px;
-      padding: 8px; cursor: pointer; color: var(--text-muted);
-      display: flex; align-items: center; justify-content: center;
-      transition: color 200ms ease, border-color 200ms ease; line-height: 1;
-    }
-    .theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
-    .theme-toggle svg { width: 16px; height: 16px; }
-    .theme-toggle .icon-moon { display: none; }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
-      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
-    }
-    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
-    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
-    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
     .header-cta {
       padding: 10px 28px; background: var(--primary); color: #fff;
@@ -287,7 +266,6 @@
       .article-cta { padding: 0 20px 100px; }
     }
   </style>
-  <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
 </head>
 <body>
 
@@ -296,11 +274,7 @@
     <a href="/" class="nav-logo"><span class="nav-logo-wordmark logo">The Pie <span class="lab">Lab</span></span></a>
     <div class="header-right">
       <a href="./" class="header-link">Blog</a>
-      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a href="../index.html#download" class="header-cta">Try Free 14 Days</a>
+<a href="../index.html#download" class="header-cta">Try Free 14 Days</a>
     </div>
   </header>
 
@@ -374,16 +348,6 @@
   </footer>
 
   <script>
-    (function() {
-      var toggle = document.getElementById('themeToggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        var next = isDark ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
-  </script>
+</script>
 </body>
 </html>

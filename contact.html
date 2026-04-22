@@ -15,8 +15,8 @@
   <meta name="description" content="Get in touch with The Pie Lab team. Submit questions, bug reports, or suggestions for improvement.">
   <link rel="canonical" href="https://pielab.app/contact.html">
   <link rel="icon" type="image/svg+xml" href="assets/logos/favicon-32.svg">
-  <meta name="theme-color" content="#f3ebe2" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e0c0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F7F3EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F2428" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Libre+Franklin:wght@200;300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -60,29 +60,7 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .site-header .logo { height: 32px; width: auto; }
-    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .site-header .logo { filter: none; }
-    }
-    [data-theme="dark"] .site-header .logo { filter: none; }
     .header-right { display: flex; align-items: center; gap: 12px; }
-    .theme-toggle {
-      background: none; border: 1px solid var(--border); border-radius: 100px;
-      padding: 8px; cursor: pointer; color: var(--text-muted);
-      display: flex; align-items: center; justify-content: center;
-      transition: color 200ms ease, border-color 200ms ease; line-height: 1;
-    }
-    .theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
-    .theme-toggle svg { width: 16px; height: 16px; }
-    .theme-toggle .icon-moon { display: none; }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: none; }
-      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: block; }
-    }
-    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
-    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
-    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
     .header-cta {
       padding: 10px 28px; background: var(--primary); color: #fff;
       font-family: var(--font-body); font-size: 14px; font-weight: 600;
@@ -303,7 +281,6 @@
       .form-card { padding: 32px 20px; }
     }
   </style>
-  <script>(function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
 </head>
 <body>
 
@@ -311,11 +288,7 @@
   <header class="site-header">
     <span class="nav-logo-wordmark logo">The Pie <span class="lab">Lab</span></span>
     <div class="header-right">
-      <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a href="index.html#download" class="header-cta">Try Free for 14 Days</a>
+<a href="index.html#download" class="header-cta">Try Free for 14 Days</a>
     </div>
   </header>
 
@@ -357,16 +330,11 @@
           <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com">
         </div>
 
-
-
-
-
         <!-- Honeypot -->
         <div class="form-hp" aria-hidden="true">
           <label for="website">Website</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
-
 
         <button type="submit" class="form-submit" id="submitBtn">
           <span class="btn-text">Send Feedback</span>
@@ -445,18 +413,7 @@
 
   <script>
     // ── Theme toggle ──
-    (function() {
-      var toggle = document.getElementById('themeToggle');
-      toggle.addEventListener('click', function() {
-        var current = document.documentElement.getAttribute('data-theme');
-        var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        var next = isDark ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
-    })();
-
-    // ── Scroll reveal ──
+// ── Scroll reveal ──
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {

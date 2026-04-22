@@ -71,9 +71,6 @@
     }
 
     .site-header .logo { height: 32px; width: auto; }
-    :root:not([data-theme="dark"]) .site-header .logo { filter: brightness(0.08); }
-    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .site-header .logo { filter: none; } }
-    [data-theme="dark"] .site-header .logo { filter: none; }
 
     .header-cta {
       padding: 10px 28px;
@@ -202,7 +199,6 @@
       .policy-page { padding: 110px 20px 80px; }
     }
   </style>
-  <script>/* Restore theme before paint */ (function() { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();</script>
 </head>
 <body>
 

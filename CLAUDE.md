@@ -8,8 +8,8 @@ Marketing/landing website for **The Pie Lab**, a pizza-making mobile app (iOS & 
 
 - **Pure HTML/CSS/JS** — no framework, no build tools, no package.json
 - **Google Fonts: Fraunces (display) + Libre Franklin (body/UI) + Space Mono (data)** — loaded via `styles.css`
-- **Shared `styles.css` at site root** holds the Ember Editorial design system (tokens, fonts, typography, wordmark). Every page links it via `<link rel="stylesheet" href="styles.css">` (or `../styles.css` for blog posts). Per-page `<style>` blocks still exist for page-specific components (hero sections, feature cards, pricing grids, etc.) and inherit tokens from styles.css.
-- Vanilla JS for interactions (IntersectionObserver, accordion, dark mode toggle)
+- **Shared `styles.css` at site root** holds the Ingredients design system (tokens, fonts, typography, wordmark). Every page links it via `<link rel="stylesheet" href="styles.css">` (or `../styles.css` for blog posts). Per-page `<style>` blocks still exist for page-specific components (hero sections, feature cards, pricing grids, etc.) and inherit tokens from styles.css.
+- Vanilla JS for interactions (IntersectionObserver, accordion)
 
 ## Site Structure
 
@@ -34,18 +34,20 @@ blog/
   *.html          — Individual blog posts (one file per post)
 ```
 
-## Design System — Ember Editorial
+## Design System — Ingredients
 
-- **Dark-first.** Page bg `#0F0D0A` (`--clr-char` / `--bg`), card bg `#1A1410` (`--clr-coal` / `--card`). Light mode is explicit opt-in via `[data-theme="light"]` (mainly for print).
-- **Palette tokens** live in `styles.css` — both Ember names (`--clr-ember`, `--clr-crust`, `--clr-parchment`, `--clr-char`, `--clr-coal`, `--clr-ash`, `--clr-smoke`, `--clr-stone`) and legacy aliases (`--bg`, `--card`, `--primary`, `--accent`, `--text`, etc.) that map to Ember values. Per-page `<style>` blocks can reference either.
-- **Primary (CTAs, "Lab" wordmark):** Ember orange `#D4713A`
+- **Dark-only.** Page bg Charcoal Oven `#1F2428` (`--clr-charcoal-oven` / `--bg`), card bg Stone Dough dark `#2A3034` (`--clr-stone-dough-dk` / `--card`). Light palette is held in `@media print` only — no in-browser light mode toggle.
+- **Palette tokens** live in `styles.css`. Ingredients names (`--clr-paprika`, `--clr-paprika-lift`, `--clr-paprika-pressed`, `--clr-olive-ash`, `--clr-olive-ash-lift`, `--clr-basil`, `--clr-cream-flour`, `--clr-stone-dough-lt`, `--clr-stone-dough-dk`, `--clr-charcoal-oven`) and theme aliases (`--bg`, `--card`, `--primary`, `--accent`, `--text`, `--text-muted`, `--border`). Per-page `<style>` blocks can reference either.
+- **Primary (CTAs, "Lab" wordmark):** Paprika lifted `#E86B38` (base `#D8572C`, pressed `#C65828`)
+- **Accent (badges, chips, section tags):** Olive Ash lifted `#9CA686`. Do **not** use Olive for muted body text — it's reserved for chip/badge roles.
+- **Reserved accent:** Electric Basil `#5A9F92` only for status/confirm (e.g., "Synced"). Do not promote to general use.
 - **Typography — strict three-font system:**
   - **Fraunces** (`var(--font-display)`) italic for display headings and the wordmark
   - **Libre Franklin** (`var(--font-body)`) weights 200–400 for body, nav, labels, buttons
   - **Space Mono** (`var(--font-data)` / `var(--font-mono)`) for all numerical output
   - Do not re-introduce Source Serif 4, Playfair Display, Inter, or Roboto Mono
 - **Wordmark:** nav and hero logos render as inline HTML (`<span class="nav-logo-wordmark">The Pie <span class="lab">Lab</span></span>`), not `<img>`
-- **No drop shadows on cards/modals** — use 1px `--clr-ash` borders instead
+- **No drop shadows on cards/modals** — use 1px `var(--border)` rules instead
 - **No pill shapes** (`border-radius: 999px`) on buttons or badges — use `--radius-btn` (2px)
 - **No card radii above 8px** — use `--radius-card` (6px)
 - Mobile-first responsive design (breakpoints at 768px and 480px)
