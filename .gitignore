@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.secret
+*.key
+*.pem
+credentials.json
+service-account*.json
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor cruft
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+
+# Local-only output
+*.log
+*.tmp
+*.bak
+node_modules/
